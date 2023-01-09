@@ -68,12 +68,15 @@ function showDetails($weenie){
     $output['emotereferences']=getRows("ace_world","weenie_properties_emote","object_Id","weenie_Class_Id=".$output['weenie'][0]);
     //$output['emoteactionreferences']=getRows("ace_world","weenie_properties_emote_action","object_Id","weenie_Class_Id=".$output['weenie'][0]);
     $output['lbreferences']=getRows("ace_world","landblock_instance","HEX(landblock),CONCAT ('/teleloc 0x',HEX(obj_Cell_Id), ' [', origin_X,' ',origin_Y,' ',origin_Z,'] ',angles_W,' ',angles_X,' ',angles_Y,' ',angles_Z)","weenie_Class_Id=".$output['weenie'][0]);
+    $output['encounterreferences']=getRows("ace_world","encounter","HEX(landblock),cell_X,Cell_Y","weenie_Class_Id=".$output['weenie'][0]);
     
     $propDir = "PropertySheets/";
     foreach($output as $label => $records){
         echo PHP_EOL;
         echo "".PHP_EOL;
-        ?>
+        if(count($records)===0){
+            //break;
+        }?>
         <table class='content' width=33% cellpadding=2 cellspacing=2 border=1>
             <tr>
                 <td colspan=4 align=center><B><?php echo strtoupper($label);?></B></td>
@@ -144,7 +147,48 @@ function showDetails($weenie){
                     <?php
                 }
                 break;
+            case 'encounterreferences':
+                ?>
+                <tr>
+                        <td width=50%>Landblock</td>
+                        <td width=50% colspan=5 nowrap>Cell</td>
+                </tr>
+                <?php
+                foreach($records as $record){
+                    ?>
+                    <tr>
+                        <td><?php echo $record[0]; ?></td>
+                        <td colspan=5 nowrap><?php echo $record[1].",".$record[2]; ?></td>
+                    <?php
+                }
+                    break;
             case 'emotereferences':
+                $propfile = file($propDir."weenietype.txt");
+                        $properties=[];
+                        foreach($propfile as $propLine){
+                            $prop=explode("	",$propLine);
+                            $properties[$prop[0]]=$prop[1];
+                        }
+                        ?>
+                <tr>
+                        <td>WCID</td>
+                        <td>Class Name</td>
+                        <td>Weenie Type</td>
+                        <td>Last Modified</td>
+                </tr><?php
+                foreach($records as $record){
+                    $gen = getRows("ace_world","weenie","*","class_Id=".$record[0])[0];
+                ?>
+                <tr>
+                        <td><a href="?search=<?php echo $gen[0];?>" ><?php echo $gen[0];?></a></td>
+                        <td><?php echo $gen[1];?></td>
+                        <td><?php echo "[".$gen[2]."] ".$properties[$gen[2]];?></td>
+                        <td><?php echo $gen[3];?></td>
+                </tr>
+                    <?php
+                }
+                break;
+            case 'genreferences':
                     $propfile = file($propDir."weenietype.txt");
                             $properties=[];
                             foreach($propfile as $propLine){
