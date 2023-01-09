@@ -1,0 +1,130 @@
+1	STUCK	"Can an object be picked up, if it can't this is false"
+2	OPEN	determines whether a chest/door is open 
+3	LOCKED	determines whether a chest/door is locked
+4	ROT_PROOF	
+5	ALLEGIANCE_UPDATE_REQUEST	
+6	AI_USES_MANA	determines whether a creatures consumes mana on spellcast
+7	AI_USE_HUMAN_MAGIC_ANIMATIONS	creatures use human spellcasting animations
+8	ALLOW_GIVE	npc/creature accepts items being handed to it
+9	CURRENTLY_ATTACKING	creature is currently attacking
+10	ATTACKER_AI	
+11	IGNORE_COLLISIONS	
+12	REPORT_COLLISIONS	
+13	ETHEREAL	determines whether the object allows players models to pass through it
+14	GRAVITY_STATUS	determines whether an object is affected by gravity
+15	LIGHTS_STATUS	determines whether the object emits light on to nearby objects/terrain
+16	SCRIPTED_COLLISION	related to projectile collisions
+17	INELASTIC	related to projectiles
+18	VISIBILITY	generator/trap/pressureplate visibility
+19	ATTACKABLE	determines whether an npc/creature is attackable
+20	SAFE_SPELL_COMPONENTS	
+21	ADVOCATE_STATE	
+22	INSCRIBABLE	1 = allow Inscription
+23	DESTROY_ON_SELL	1 = item does not appear in vendor inventory when sold
+24	UI_HIDDEN	"determines whether an item can be selected, 0 = yes, 1 = no"
+25	IGNORE_HOUSE_BARRIERS	1 = character model can pass through housing barrier
+26	HIDDEN_ADMIN	
+27	PK_WOUNDER	recently attacked / was attacked ?
+28	PK_KILLER	player killer status / recently killed a pk?
+29	NO_CORPSE	"only appears if set to 1, creature does not leave a corpse"
+30	UNDER_LIFESTONE_PROTECTION	lifestone protection spell is active
+31	ITEM_MANA_UPDATE_PENDING	
+32	GENERATOR_STATUS	
+33	RESET_MESSAGE_PENDING	doors/chests
+34	DEFAULT_OPEN	"doors/chests, always set to 0 if it appears"
+35	DEFAULT_LOCKED	"object is locked by default, doors/chests etc"
+36	DEFAULT_ON	
+37	OPEN_FOR_BUSINESS	
+38	IS_FROZEN	
+39	DEAL_MAGICAL_ITEMS	
+40	LOGOFF_IM_DEAD	
+41	REPORT_COLLISIONS_AS_ENVIRONMENT	
+42	ALLOW_EDGE_SLIDE	"1 = character will ""slide"" along object if running against object at angle"
+43	ADVOCATE_QUEST	player has completed the advocate quest
+44	IS_ADMIN	player is an administrator
+45	IS_ARCH	"Architect, Archon?"
+46	IS_SENTINEL	player is a sentinel
+47	IS_ADVOCATE	player is an advocate
+48	CURRENTLY_POWERING_UP	
+49	GENERATOR_ENTERED_WORLD	generator has spawned on server start
+50	NEVER_FAIL_CASTING	npcs / mobs never fail to spellcast
+51	VENDOR_SERVICE	
+52	AI_IMMOBILE	"creatures that don't move (npcs, mobs, mobs disguised as objects)"
+53	DAMAGED_BY_COLLISIONS	player receives damage from collisions
+54	IS_DYNAMIC	
+55	IS_HOT	"determines whether acid, mana pools, toxic air etc are active"
+56	IS_AFFECTING	character is being affected by hotspot?
+57	AFFECTS_AIS	hotspot affects AI's
+58	SPELL_QUEUE_ACTIVE	
+59	GENERATOR_DISABLED	1 = generator is currently disabled
+60	IS_ACCEPTING_TELLS	player is accepting private messages
+61	LOGGING_CHANNEL	
+62	OPENS_ANY_LOCK	item opens any locked object
+63	UNLIMITED_USE	item has infinite uses
+64	GENERATED_TREASURE_ITEM	
+65	IGNORE_MAGIC_RESIST	1 =  ignore magic resistance
+66	IGNORE_MAGIC_ARMOR	1 = ignore banes
+67	AI_ALLOW_TRADE	
+68	SPELL_COMPONENTS_REQUIRED	1 =  does not require spell components to cast magic
+69	IS_SELLABLE	"1 = sellable, 0 = ""This item cannot be sold"""
+70	IGNORE_SHIELDS_BY_SKILL	
+71	NODRAW	1 = do not draw the object
+72	ACTIVATION_UNTARGETED	
+73	HOUSE_HAS_GOTTEN_PRIORITY_BOOT_POS	
+74	GENERATOR_AUTOMATIC_DESTRUCTION	
+75	HOUSE_HOOKS_VISIBLE	house hook visibility - @house hooks on/off
+76	HOUSE_REQUIRES_MONARCH	mansions
+77	HOUSE_HOOKS_ENABLED	house hooks enabled - @house hooks on/off
+78	HOUSE_NOTIFIED_HUD_OF_HOOK_COUNT	
+79	AI_ACCEPT_EVERYTHING	"npc/creature will accept *any* items given to it, regardless of emoteTable"
+80	IGNORE_PORTAL_RESTRICTIONS	character ignores all portal restrictions
+81	REQUIRES_BACKPACK_SLOT	"anything that requires the use of a backpack slot, that's not a backpack"
+82	DONT_TURN_OR_MOVE_WHEN_GIVING	don't turn or move when handing an item to player
+83	NPC_LOOKS_LIKE_OBJECT	"NPC Looks Like Object (Description, no stat panel)"
+84	IGNORE_CLO_ICONS	
+85	APPRAISAL_HAS_ALLOWED_WIELDER	This item can only be wielded by <player>
+86	CHEST_REGEN_ON_CLOSE	1 = chest generates new items on close
+87	LOGOFF_IN_MINIGAME	
+88	PORTAL_SHOW_DESTINATION	Portal displays APPRAISAL_PORTAL_DESTINATION_STRING
+89	PORTAL_IGNORES_PK_ATTACK_TIMER	
+90	NPC_INTERACTS_SILENTLY	
+91	RETAINED	"1 = item cannot be sold, leather applied"
+92	IGNORE_AUTHOR	1 = anyone can edit the inscription
+93	LIMBO	1 = player is in limbo due to admin action
+94	APPRAISAL_HAS_ALLOWED_ACTIVATOR	This item can only be activated by <player>
+95	EXISTED_BEFORE_ALLEGIANCE_XP_CHANGES	
+96	IS_DEAF	
+97	IS_PSR	
+98	INVINCIBLE	1 = player/object does not take any damage
+99	IVORYABLE	1 = Ivoryable.
+100	DYABLE	1 = item can be dyed
+101	CAN_GENERATE_RARE	1 = creature/corpse can generate a rare
+102	CORPSE_GENERATED_RARE	1 = corpse generated a rare
+103	NON_PROJECTILE_MAGIC_IMMUNE	1 =  immune to life/creature magic (Direct Cast)
+104	ACTD_RECEIVED_ITEMS	related to ACTD_PREORDER_RECEIVED_ITEMS
+105	UNKNOWN__GUESSEDNAME	
+106	FIRST_ENTER_WORLD_DONE	set after first entering world to provide benefits on login only once?
+107	RECALLS_DISABLED	unable to cast any recall spell
+108	RARE_USES_TIMER	"1 = crystals/pearls, 0 = kits/keys/weapons/armor/etc"
+109	ACTD_PREORDER_RECEIVED_ITEMS	received Throne of Destiny preorder items 
+110	AFK	character is in @afk mode
+111	IS_GAGGED	character is chat gagged
+112	PROC_SPELL_SELF_TARGETED	1 = from aetheria surges / cloaks?
+113	IS_ALLEGIANCE_GAGGED	character cannot speak in allegiance chat
+114	EQUIPMENT_SET_TRIGGER_PIECE	
+115	UNINSCRIBE	
+116	WIELD_ON_USE	
+117	CHEST_CLEARED_WHEN_CLOSED	1 = all items are cleared from the chest when closed
+118	NEVER_ATTACK	
+119	SUPPRESS_GENERATE_EFFECT	
+120	TREASURE_CORPSE	
+121	EQUIPMENT_SET_ADD_LEVEL	
+122	BARBER_ACTIVE	barber UI / actions are active
+123	TOP_LAYER_PRIORITY	property on armor for layering tools?
+124	NO_HELD_ITEM_SHOWN	
+125	LOGIN_AT_LIFESTONE	related to no-log dungeons/landblocks
+126	OLTHOI_PK	olthoi player PK status
+127	ACCOUNT_15_DAYS	account is at least 15 days old (housing / pk olthoi island restriction)
+128	HAD_NO_VITAE	"PK Olthoi drop top tier loot when they die, but not if they have vitae."
+129	NO_OLTHOI_TALK	"player is olthoi, can only speak in othoi channels"
+130	AUTOWIELD_LEFT	autowield left-hand 

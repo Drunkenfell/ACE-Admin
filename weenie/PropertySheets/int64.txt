@@ -1,0 +1,8 @@
+1	TOTAL_EXPERIENCE	total character xp
+2	AVAILABLE_EXPERIENCE	total available xp to spend
+3	AUGMENTATION_COST	xp cost of augmentation gem
+4	ITEM_TOTAL_XP	total xp item an item can earn
+5	ITEM_BASE_XP	amount of xp required per item level
+6	AVAILABLE_LUMINANCE	current luminance xp
+7	MAXIMUM_LUMINANCE	"character luminance limit - 1,500,000"
+8	INTERACTION_REQS	

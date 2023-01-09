@@ -1,0 +1,6 @@
+1	MAX_HEALTH	current max health
+2	HEALTH	curent health (due to debuffs / vitae  etc)
+3	MAX_STAMINA	current max stamina
+4	STAMINA	current stamina
+5	MAX_MANA	current max mana
+6	MANA	current mana

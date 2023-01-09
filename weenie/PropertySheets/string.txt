@@ -1,0 +1,52 @@
+1	NAME	Object name
+2	TITLE	Player titles on ID panel
+3	SEX	Male/Female
+4	HERITAGE_GROUP	"Sho, Aluvian, Gharu'ndim, Aun, Viamontian, Empyrean, Hea, Haebrous"
+5	TEMPLATE	"Like a title, but for npcs / creatures / objects"
+6	ATTACKERS_NAME	
+7	INSCRIPTION	Inscription text
+8	SCRIBE_NAME	Author name of the inscription
+9	VENDORS_NAME	
+10	FELLOWSHIP	Current fellowship name
+11	MONARCHS_NAME	Current monarchs name
+12	LOCK_CODE	string on objects that match the KEY_CODE on key that unlocks
+13	KEY_CODE	string on key that match the LOCK_CODE on object to be unlocked
+14	USE	"""Use"" instructions on ID panel"
+15	SHORT_DESC	description on ID panel
+16	LONG_DESC	description on ID panel
+17	ACTIVATION_TALK	Messages sent when activating something (trap/pressureplate)
+18	USE_MESSAGE	"Messages sent when using an object (pk/npk altar, lifestone)"
+19	ITEM_HERITAGE_GROUP_RESTRICTION	Racial wield requirements (Aluvian/Gharu'ndim/Sho)
+20	PLURAL_NAME	Plural name for stackable items
+21	MONARCHS_TITLE	Monarchs Rank Title
+22	ACTIVATION_FAILURE	Attempted to activate / use something still on timer
+23	SCRIBE_ACCOUNT	SCRIBE_NAME account name
+24	TOWN_NAME	"Town Names, Outpost Names, Casino Names on objects"
+25	CRAFTSMAN_NAME	This item can only be wielded by X -- slayer imbues etc
+26	USE_PK_SERVER_ERROR	message received when using pk/npk device on pk server
+27	SCORE_CACHED_TEXT	for unused scorebook
+28	SCORE_DEFAULT_ENTRY_FORMAT	for unused scorebook
+29	SCORE_FIRST_ENTRY_FORMAT	for unused scorebook
+30	SCORE_LAST_ENTRY_FORMAT	for unused scorebook
+31	SCORE_ONLY_ENTRY_FORMAT	for unused scorebook
+32	SCORE_NO_ENTRY	for unused scorebook
+33	QUEST	quest flag string
+34	GENERATOR_EVENT	event trigger strings
+35	PATRONS_TITLE	Patrons Rank Title
+36	HOUSE_OWNER_NAME	name displayed on house crystal
+37	QUEST_RESTRICTION	quest flag string
+38	APPRAISAL_PORTAL_DESTINATION	Displays portal destination string on portal ID panel
+39	TINKER_NAME	Last tinkered by X
+40	IMBUER_NAME	imbued by X
+41	HOUSE_OWNER_ACCOUNT	related to 36
+42	DISPLAY_NAME	
+43	DATE_OF_BIRTH	character date of birth on ID panel
+44	THIRD_PARTY_API	unused client plugin system
+45	KILL_QUEST	
+46	AFK	String set by @afk msg stringhere
+47	ALLEGIANCE_NAME	Allegiance name
+48	AUGMENTATION_ADD_QUEST	
+49	KILL_QUEST_2	
+50	KILL_QUEST_3	
+51	USE_SENDS_SIGNAL	sends signal string OnUse (similar to LocalSignal_EmoteType)
+52	GEAR_PLATING_NAME	

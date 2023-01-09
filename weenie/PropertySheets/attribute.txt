@@ -1,0 +1,6 @@
+1	STRENGTH	current strength skill level
+2	ENDURANCE	current endurance skill level
+3	QUICKNESS	current quickness skill level
+4	COORDINATION	current coordination skill level
+5	FOCUS	current focus skill level
+6	SELF	current self skill level

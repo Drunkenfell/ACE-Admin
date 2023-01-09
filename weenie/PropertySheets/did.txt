@@ -1,0 +1,61 @@
+1	SETUP	setup model id
+2	MOTION_TABLE	motion table id
+3	SOUND_TABLE	sound table id
+4	COMBAT_TABLE	combat table id
+5	QUALITY_FILTER	
+6	PALETTE_BASE	palette base id
+7	CLOTHINGBASE	clothing table id
+8	ICON	icon id
+9	EYES_TEXTURE	eye texture id
+10	NOSE_TEXTURE	nose texture id
+11	MOUTH_TEXTURE	mouth texture id
+12	DEFAULT_EYES_TEXTURE	default eyes texture id
+13	DEFAULT_NOSE_TEXTURE	default nose texture id
+14	DEFAULT_MOUTH_TEXTURE	default mouth texture id
+15	HAIR_PALETTE	hair palette id
+16	EYES_PALETTE	eyes palette id
+17	SKIN_PALETTE	skin palette id
+18	HEAD_OBJECT	
+19	ACTIVATION_ANIMATION	only seen on advocate/sentinel statue
+20	INIT_MOTION	only seen on skeleton/old bones
+21	ACTIVATION_SOUND	
+22	PHYSICS_EFFECT_TABLE	
+23	USE_SOUND	sound made on use (potions/food)
+24	USE_TARGET_ANIMATION	levers/buttons/trapdoors/wheel of fortune
+25	USE_TARGET_SUCCESS_ANIMATION	"success animation - advocate fane, pk/npk altars"
+26	USE_TARGET_FAILURE_ANIMATION	failure animation - advocate fane / npk altar
+27	USE_USER_ANIMATION	"animation on character on wield of wands, on use of food"
+28	SPELL	references spelltable: spell id
+29	SPELL_COMPONENT	"only on spell comp objects, one for each"
+30	PHYSICS_SCRIPT	"projectile spells, some weapons, some creatures, fireworks"
+31	LINKED_PORTAL_ONE	primary portal tie
+32	WIELDED_TREASURE_TYPE	creature wielded item type?
+33	UNKNOWN_GUESSEDNAME	unknown
+34	UNKNOWN_GUESSEDNAME2	unknown
+35	DEATH_TREASURE_TYPE	
+36	MUTATE_FILTER	
+37	ITEM_SKILL_LIMIT	skill id to be checked against ITEM_SKILL_LEVEL_LIMIT_INT for wield reqs
+38	USE_CREATE_ITEM	only the advocate fane uses this. creates wcid 3653 - The Advocate's Tomes
+39	DEATH_SPELL	references spelltable: spell id
+40	VENDORS_CLASSID	
+41	ITEM_SPECIALIZED_ONLY	skill id for speciailized skill requirement to wield
+42	HOUSEID	id for each apartment/cottage/villa/mansion
+43	ACCOUNT_HOUSEID	id of the house that the account owns
+44	RESTRICTION_EFFECT	"housing barrier effect ID - 151, 152, 153"
+45	CREATION_MUTATION_FILTER	
+46	TSYS_MUTATION_FILTER	
+47	LAST_PORTAL	portal ID of last portal entered (that is recallable for portal recall?)
+48	LINKED_PORTAL_TWO	secondary portal tie
+49	ORIGINAL_PORTAL	
+50	ICON_OVERLAY	icon overlay
+51	ICON_OVERLAY_SECONDARY	secondary icon overlay - only stamps use this
+52	ICON_UNDERLAY	icon underlay
+53	AUGMENTATION_MUTATION_FILTER	
+54	AUGMENTATION_EFFECT	
+55	PROC_SPELL	random spell proc id
+56	AUGMENTATION_CREATE_ITEM	
+57	ALTERNATE_CURRENCY	wcid of item to accept as a currency other than pyreal?
+58	BLUE_SURGE_SPELL	blue aetheria surge spell id
+59	YELLOW_SURGE_SPELL	yellow aetheria surge spell id
+60	RED_SURGE_SPELL	red aetheria surge spell id
+61	OLTHOI_DEATH_TREASURE_TYPE	slag? mutated gland?

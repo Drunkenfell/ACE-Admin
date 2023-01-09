@@ -1,0 +1,390 @@
+1	ITEM_TYPE	Object Class of the Item
+2	CREATURE_TYPE	"Creature Type (Drudge, Mite, Banderling, etc)"
+3	PALETTE_TEMPLATE	changes the palette template (color) of the item or creature
+4	CLOTHING_PRIORITY	Armor/Underwear Coverage
+5	ENCUMB_VAL	Defines the Burden value
+6	ITEMS_CAPACITY	"Item Capacity of a Container (Pack, Player, Monster, NPC)"
+7	CONTAINERS_CAPACITY	Container (Pack) capacity
+8	MASS	physics related?
+9	LOCATIONS	equippable slots
+10	CURRENT_WIELDED_LOCATION	Item's Current Wielded Location (Locations ENUM)
+11	MAX_STACK_SIZE	maximum stack size value
+12	STACK_SIZE	current stack size
+13	STACK_UNIT_ENCUMB	Same as Burden
+14	STACK_UNIT_MASS	physics related?
+15	STACK_UNIT_VALUE	Same as Value
+16	ITEM_USEABLE	usable item choices
+17	RARE_ID	rare ID number
+18	UI_EFFECTS	Icon Outline
+19	VALUE	The value in pyreals
+20	COIN_VALUE	For Players only: Total Pyreals in inventory (not counting storage)
+21	TOTAL_EXPERIENCE	"Total Experience Earned, Player Character Only"
+22	AVAILABLE_CHARACTER	???
+23	TOTAL_SKILL_CREDITS	"Total Skill Credits Earned, Player Character Only"
+24	AVAILABLE_SKILL_CREDITS	"Available Skill Credits, Player Character Only"
+25	LEVEL	Player/Creature Level
+26	ACCOUNT_REQUIREMENTS	1 = Use requires Throne of Destiny
+27	ARMOR_TYPE	Armor Type
+28	ARMOR_LEVEL	Armor Level
+29	ALLEGIANCE_CP_POOL	???
+30	ALLEGIANCE_RANK	"Current Rank, Player Character Only"
+31	CHANNELS_ALLOWED	Old Admin Global Channels available to character (Channel Enum)
+32	CHANNELS_ACTIVE	Old Admin Global Channels character is currently listening to (Channel Enum)
+33	BONDED	"sets bonded, destroy/drop on death"
+34	MONARCHS_RANK	Monarch Rank
+35	ALLEGIANCE_FOLLOWERS	Total Allegiance Followers
+36	RESIST_MAGIC	Unenchantable
+37	RESIST_ITEM_APPRAISAL	the difficulty to ID an item (mostly creature weapons)
+38	RESIST_LOCKPICK	Lockpick Resistance
+39	DEPRECATED_RESIST_REPAIR	???
+40	COMBAT_MODE	"Combat Mode (Melee, Wand, Missile, Peace) Player Char Only"
+41	CURRENT_ATTACK_HEIGHT	Attack Height (Low Mid High)
+42	COMBAT_COLLISIONS	physics related?
+43	NUM_DEATHS	"Total Death Count, Player Character Only"
+44	DAMAGE	Maximum damage
+45	DAMAGE_TYPE	Defines the type of damage 
+46	DEFAULT_COMBAT_STYLE	set to value that matches weapon type
+47	ATTACK_TYPE	enum AttackType
+48	WEAPON_SKILL	Defines skill type. 
+49	WEAPON_TIME	Defines the speed of the weapon
+50	AMMO_TYPE	"Type of Ammo, set on missile weapon, and ammunition"
+51	COMBAT_USE	equip type
+52	PARENT_LOCATION	enum parentLocation
+53	PLACEMENT_POSITION	
+54	WEAPON_ENCUMBRANCE	
+55	WEAPON_MASS	
+56	SHIELD_VALUE	
+57	SHIELD_ENCUMBRANCE	
+58	MISSILE_INVENTORY_LOCATION	
+59	FULL_DAMAGE_TYPE	
+60	WEAPON_RANGE	
+61	ATTACKERS_SKILL	
+62	DEFENDERS_SKILL	
+63	ATTACKERS_SKILL_VALUE	
+64	ATTACKERS_CLASS	
+65	PLACEMENT	
+66	CHECKPOINT_STATUS	
+67	TOLERANCE	Special tolerance levels for creatures deciding to attack you or not
+68	TARGETING_TACTIC	
+69	COMBAT_TACTIC	
+70	HOMESICK_TARGETING_TACTIC	
+71	NUM_FOLLOW_FAILURES	
+72	FRIEND_TYPE	groups of creatures that will attack you if you attack their friend
+73	FOE_TYPE	groups of creatures that will attack eachother
+74	MERCHANDISE_ITEM_TYPES	"For Vendors, ItemType Enum to set what types of items vendor will buy"
+75	MERCHANDISE_MIN_VALUE	Min value of item allowed to be bought by vendor
+76	MERCHANDISE_MAX_VALUE	Max value of item allowed to be bought by vendor
+77	NUM_ITEMS_SOLD	
+78	NUM_ITEMS_BOUGHT	
+79	MONEY_INCOME	
+80	MONEY_OUTFLOW	
+81	MAX_GENERATED_OBJECTS	"generators/chests, max number of items that can be generated at one time"
+82	INIT_GENERATED_OBJECTS	"generators/chests, number of items initially generated"
+83	ACTIVATION_RESPONSE	"used for traps, chests, and a handful of objects"
+84	ORIGINAL_VALUE	
+85	NUM_MOVE_FAILURES	
+86	MIN_LEVEL	Minimum level required
+87	MAX_LEVEL	Maximum level required
+88	LOCKPICK_MOD	Hidden Lockpick Mod
+89	BOOSTER_ENUM	"the stat food/potions boost (health, stamina, mana)"
+90	BOOST_VALUE	"value of vital boosted (health, stamina, mana)"
+91	MAX_STRUCTURE	"Max number of uses (heal kits, keys, lockpicks, keyrings, etc)"
+92	STRUCTURE	Number of uses remaining
+93	PHYSICS_STATE	PhysicsState enum
+94	TARGET_TYPE	bitmask of ITEM_TYPE
+95	RADARBLIP_COLOR	Color of the radar blip
+96	ENCUMB_CAPACITY	Max amount of ENCUMB_VAL allowed for creature (Player only)
+97	LOGIN_TIMESTAMP	unixtime for login
+98	CREATION_TIMESTAMP	date of birth in unix
+99	PK_LEVEL_MODIFIER	value of pk modifier on altars
+100	GENERATOR_TYPE	
+101	AI_ALLOWED_COMBAT_STYLE	
+102	LOGOFF_TIMESTAMP	
+103	GENERATOR_DESTRUCTION_TYPE	
+104	ACTIVATION_CREATE_CLASS	
+105	ITEM_WORKMANSHIP	"1, 3-10"
+106	ITEM_SPELLCRAFT	spellcraft value
+107	ITEM_CUR_MANA	"Current mana of the item (becomes ""stored mana"" if greater than int 108)"
+108	ITEM_MAX_MANA	Maximum mana of the item
+109	ITEM_DIFFICULTY	Arcane Lore difficulty requirement
+110	ITEM_ALLEGIANCE_RANK_LIMIT	Rank Requirement
+111	PORTAL_BITMASK	portal restrictions (no summon/tie/pk only)
+112	ADVOCATE_LEVEL	level of advocate
+113	GENDER	Male/Female NPC
+114	ATTUNED	1 = Attuned
+115	ITEM_SKILL_LEVEL_LIMIT	activation skill requirement value
+116	GATE_LOGIC	
+117	ITEM_MANA_COST	Mana cost of activating the built in spell on a wand
+118	LOGOFF	
+119	ACTIVE	
+120	ATTACK_HEIGHT	Player Attack Height
+121	NUM_ATTACK_FAILURES	
+122	AI_CP_THRESHOLD	
+123	AI_ADVANCEMENT_STRATEGY	
+124	VERSION	
+125	AGE	age in seconds
+126	VENDOR_HAPPY_MEAN	
+127	VENDOR_HAPPY_VARIANCE	
+128	CLOAK_STATUS	
+129	VITAE_CP_POOL	xp for vitae reduction
+130	NUM_SERVICES_SOLD	
+131	MATERIAL_TYPE	Type of Material
+132	NUM_ALLEGIANCE_BREAKS	number of times broken allegiance (is this for the xp to swear mechanic?)
+133	SHOWABLE_ON_RADAR	Options for showable on radar
+134	PLAYER_KILLER_STATUS	Player Killer Status
+135	VENDOR_HAPPY_MAX_ITEMS	
+136	SCORE_PAGE_NUM	for unused scorebooks
+137	SCORE_CONFIG_NUM	for unused scorebooks
+138	SCORE_NUM_SCORES	for unused scorebooks
+139	DEATH_LEVEL	
+140	AI_OPTIONS	
+141	OPEN_TO_EVERYONE	house barrier?
+142	GENERATOR_TIME_TYPE	1 or 3
+143	GENERATOR_START_TIME	unix timestamp for generator to start
+144	GENERATOR_END_TIME	unix timestamp for generator to stop
+145	GENERATOR_END_DESTRUCTION_TYPE	"1,2,3 - usually 2"
+146	XP_OVERRIDE	
+147	NUM_CRASH_AND_TURNS	
+148	COMPONENT_WARNING_THRESHOLD	
+149	HOUSE_STATUS	0 or -1
+150	HOOK_PLACEMENT	"defined on items, placement it appears on a house hook"
+151	HOOK_TYPE	Type of Hook
+152	HOOK_ITEM_TYPE	
+153	AI_PP_THRESHOLD	ai xp gain modifier?
+154	GENERATOR_VERSION	
+155	HOUSE_TYPE	Type of House
+156	PICKUP_EMOTE_OFFSET	
+157	WEENIE_ITERATION	
+158	WIELD_REQUIREMENTS	Wield Requirement
+159	WIELD_SKILLTYPE	Wield Requirement Skill
+160	WIELD_DIFFICULTY	minimum base skill to wield
+161	HOUSE_MAX_HOOKS_USABLE	number of usable hooks in a house
+162	HOUSE_CURRENT_HOOKS_USABLE	available number of usable hooks left in a house?
+163	ALLEGIANCE_MIN_LEVEL	minimum allegiance rank to buy mansion
+164	ALLEGIANCE_MAX_LEVEL	
+165	HOUSE_RELINK_HOOK_COUNT	
+166	SLAYER_CREATURE_TYPE	
+167	CONFIRMATION_IN_PROGRESS	
+168	CONFIRMATION_TYPE_IN_PROGRESS	
+169	TSYS_MUTATION_DATA	
+170	NUM_ITEMS_IN_MATERIAL	salvaged from x items.
+171	NUM_TIMES_TINKERED	number of times an item was tinkered
+172	APPRAISAL_LONG_DESC_DECORATION	
+173	APPRAISAL_LOCKPICK_SUCCESS_PERCENT	display lockpick chance of success on locked doors/chests ID panel
+174	APPRAISAL_PAGES	display number of pages on ID panel
+175	APPRAISAL_MAX_PAGES	display max number of pages on ID panel
+176	APPRAISAL_ITEM_SKILL	
+177	GEM_COUNT	amount of gems set in an item
+178	GEM_TYPE	type of gem set in an item
+179	IMBUED_EFFECT	Imbued effect on weapon/wand
+180	ATTACKERS_RAW_SKILL_VALUE	
+181	CHESS_RANK	chess rank in player stat panel
+182	CHESS_TOTALGAMES	total chess games played
+183	CHESS_GAMESWON	number of chess games won
+184	CHESS_GAMESLOST	number of chess games lost
+185	TYPE_OF_ALTERATION	skill spec/unspec
+186	SKILL_TO_BE_ALTERED	Skill to be altered on spec/unspec gems
+187	SKILL_ALTERATION_COUNT	server side count of how many spec/unspecs used? for use with timers
+188	HERITAGE_GROUP	NPC Heritage
+189	TRANSFER_FROM_ATTRIBUTE	Transfer from Attribute
+190	TRANSFER_TO_ATTRIBUTE	Transfer to Attribute
+191	ATTRIBUTE_TRANSFER_COUNT	server side count of how many transfers used? for use with timers
+192	FAKE_FISHING_SKILL	fishing skill level
+193	NUM_KEYS	Number of keys contained on a keyring
+194	DEATH_TIMESTAMP	last death timestamp
+195	PK_TIMESTAMP	turned pk timestamp
+196	VICTIM_TIMESTAMP	Last time killed by a pk
+197	HOOK_GROUP	Mansion Hookable Device Groups
+198	ALLEGIANCE_SWEAR_TIMESTAMP	timestamp when swearing to patron
+199	HOUSE_PURCHASE_TIMESTAMP	timestamp when purchasing a new house
+200	REDIRECTABLE_EQUIPPED_ARMOR_COUNT	
+201	MELEEDEFENSE_IMBUEDEFFECTTYPE_CACHE	
+202	MISSILEDEFENSE_IMBUEDEFFECTTYPE_CACHE	
+203	MAGICDEFENSE_IMBUEDEFFECTTYPE_CACHE	
+204	ELEMENTAL_DAMAGE_BONUS	Elemental Damage Bonus #
+205	IMBUE_ATTEMPTS	
+206	IMBUE_SUCCESSES	
+207	CREATURE_KILLS	number of creatures killed
+208	PLAYER_KILLS_PK	number of pks killed
+209	PLAYER_KILLS_PKL	number of pkls killed
+210	RARES_TIER_ONE	
+211	RARES_TIER_TWO	
+212	RARES_TIER_THREE	
+213	RARES_TIER_FOUR	
+214	RARES_TIER_FIVE	
+215	AUGMENTATION_STAT	
+216	AUGMENTATION_FAMILY_STAT	
+217	AUGMENTATION_INNATE_FAMILY	number of times an attribute augmentation earned (Max 10)
+218	AUGMENTATION_INNATE_STRENGTH	number of times earned
+219	AUGMENTATION_INNATE_ENDURANCE	number of times earned
+220	AUGMENTATION_INNATE_COORDINATION	number of times earned
+221	AUGMENTATION_INNATE_QUICKNESS	number of times earned
+222	AUGMENTATION_INNATE_FOCUS	number of times earned
+223	AUGMENTATION_INNATE_SELF	number of times earned
+224	AUGMENTATION_SPECIALIZE_SALVAGING	number of times earned
+225	AUGMENTATION_SPECIALIZE_ITEM_TINKERING	number of times earned
+226	AUGMENTATION_SPECIALIZE_ARMOR_TINKERING	number of times earned
+227	AUGMENTATION_SPECIALIZE_MAGIC_ITEM_TINKERING	number of times earned
+228	AUGMENTATION_SPECIALIZE_WEAPON_TINKERING	number of times earned
+229	AUGMENTATION_EXTRA_PACK_SLOT	number of times earned
+230	AUGMENTATION_INCREASED_CARRYING_CAPACITY	number of times earned (Max 5)
+231	AUGMENTATION_LESS_DEATH_ITEM_LOSS	number of times earned (Max 3)
+232	AUGMENTATION_SPELLS_REMAIN_PAST_DEATH	number of times earned
+233	AUGMENTATION_CRITICAL_DEFENSE	number of times earned
+234	AUGMENTATION_BONUS_XP	number of times earned
+235	AUGMENTATION_BONUS_SALVAGE	number of times earned (Max 4)
+236	AUGMENTATION_BONUS_IMBUE_CHANCE	number of times earned
+237	AUGMENTATION_FASTER_REGEN	number of times earned (Max 2)
+238	AUGMENTATION_INCREASED_SPELL_DURATION	number of times earned (Max 5)
+239	AUGMENTATION_RESISTANCE_FAMILY	number of times a resistance augmentation earned (Max 2)
+240	AUGMENTATION_RESISTANCE_SLASH	number of times earned
+241	AUGMENTATION_RESISTANCE_PIERCE	number of times earned
+242	AUGMENTATION_RESISTANCE_BLUNT	number of times earned
+243	AUGMENTATION_RESISTANCE_ACID	number of times earned
+244	AUGMENTATION_RESISTANCE_FIRE	number of times earned
+245	AUGMENTATION_RESISTANCE_FROST	number of times earned
+246	AUGMENTATION_RESISTANCE_LIGHTNING	number of times earned
+247	RARES_TIER_ONE_LOGIN	
+248	RARES_TIER_TWO_LOGIN	
+249	RARES_TIER_THREE_LOGIN	
+250	RARES_TIER_FOUR_LOGIN	
+251	RARES_TIER_FIVE_LOGIN	
+252	RARES_LOGIN_TIMESTAMP	
+253	RARES_TIER_SIX	
+254	RARES_TIER_SEVEN	
+255	RARES_TIER_SIX_LOGIN	
+256	RARES_TIER_SEVEN_LOGIN	
+257	ITEM_ATTRIBUTE_LIMIT	Attribute for Activation
+258	ITEM_ATTRIBUTE_LEVEL_LIMIT	Attribute Value for Activation
+259	ITEM_ATTRIBUTE_2ND_LIMIT	Attribute 2 for Activation
+260	ITEM_ATTRIBUTE_2ND_LEVEL_LIMIT	Attribute 2 Value for Activation
+261	CHARACTER_TITLE_ID	current character title ID reference
+262	NUM_CHARACTER_TITLES	number of titles earned
+263	RESISTANCE_MODIFIER_TYPE	Type of Resistance Cleaving
+264	FREE_TINKERS_BITFIELD	
+265	EQUIPMENT_SET_ID	Armor/Weapon/Jewelry Set
+266	PET_CLASS	
+267	LIFESPAN	total lifespan in seconds until item is destroyed
+268	REMAINING_LIFESPAN	seconds remaining until item is destroyed
+269	USE_CREATE_QUANTITY	
+270	WIELD_REQUIREMENTS_2	Wield Requirement 2
+271	WIELD_SKILLTYPE_2	Wield Requirement 2 Skill 
+272	WIELD_DIFFICULTY_2	Wield Requirement 2 Value
+273	WIELD_REQUIREMENTS_3	Wield Requirement 3
+274	WIELD_SKILLTYPE_3	Wield Requirement 3 Skill 
+275	WIELD_DIFFICULTY_3	Wield Requirement 3 Value
+276	WIELD_REQUIREMENTS_4	Wield Requirement 4
+277	WIELD_SKILLTYPE_4	Wield Requirement 4 Skill 
+278	WIELD_DIFFICULTY_4	Wield Requirement 4 Value
+279	UNIQUE	Amount of items that can be carried
+280	SHARED_COOLDOWN	"summoning essences, portal gems. shared ID's to share cooldown timers"
+281	FACTION1_BITS	which faction you are aligned with
+282	FACTION2_BITS	which faction you are aligned with
+283	FACTION3_BITS	which faction you are aligned with
+284	HATRED1_BITS	for opposing faction creatures to attack you
+285	HATRED2_BITS	for opposing faction creatures to attack you
+286	HATRED3_BITS	for opposing faction creatures to attack you
+287	SOCIETY_RANK_CELHAN	ribbon turn in count
+288	SOCIETY_RANK_ELDWEB	ribbon turn in count
+289	SOCIETY_RANK_RADBLO	ribbon turn in count
+290	HEAR_LOCAL_SIGNALS	
+291	HEAR_LOCAL_SIGNALS_RADIUS	
+292	CLEAVING	Cleave: X enemies in front arc
+293	AUGMENTATION_SPECIALIZE_GEARCRAFT	number of times earned
+294	AUGMENTATION_INFUSED_CREATURE_MAGIC	number of times earned
+295	AUGMENTATION_INFUSED_ITEM_MAGIC	number of times earned
+296	AUGMENTATION_INFUSED_LIFE_MAGIC	number of times earned
+297	AUGMENTATION_INFUSED_WAR_MAGIC	number of times earned
+298	AUGMENTATION_CRITICAL_EXPERTISE	number of times earned
+299	AUGMENTATION_CRITICAL_POWER	number of times earned
+300	AUGMENTATION_SKILLED_MELEE	number of times earned
+301	AUGMENTATION_SKILLED_MISSILE	number of times earned
+302	AUGMENTATION_SKILLED_MAGIC	number of times earned
+303	IMBUED_EFFECT_2	Imbued effect on weapon/wand
+304	IMBUED_EFFECT_3	Imbued effect on weapon/wand
+305	IMBUED_EFFECT_4	Imbued effect on weapon/wand
+306	IMBUED_EFFECT_5	Imbued effect on weapon/wand
+307	DAMAGE_RATING	damage rating (luminance)
+308	DAMAGE_RESIST_RATING	damage resist rating (luminance)
+309	AUGMENTATION_DAMAGE_BONUS	number of times earned
+310	AUGMENTATION_DAMAGE_REDUCTION	number of times earned
+311	IMBUE_STACKING_BITS	
+312	HEAL_OVER_TIME	aetheria regen proc?
+313	CRIT_RATING	chance to crit rating (from aug?)
+314	CRIT_DAMAGE_RATING	crit damage rating (luminance)
+315	CRIT_RESIST_RATING	crit resist rating (aug)
+316	CRIT_DAMAGE_RESIST_RATING	crit damage resist rating (luminance)
+317	HEALING_RESIST_RATING	"healing resist rating,  dirty fighting? "
+318	DAMAGE_OVER_TIME	dirty fighting dot damage? 
+319	ITEM_MAX_LEVEL	max level an item can earn xp to
+320	ITEM_XP_STYLE	"1 = each level cost the same xp, 2 = xp cost per level increases each level"
+321	EQUIPMENT_SET_EXTRA	
+322	AETHERIA_BITFIELD	"bitfield for number of aetheria slots unlocked 1, 3, 7 for 1-3 slots."
+323	HEALING_BOOST_RATING	Player Healing Boost Rating Value
+324	HERITAGE_SPECIFIC_ARMOR	"heritage enum for racial items, 13 for olthoi (salivatory goo)"
+325	ALTERNATE_RACIAL_SKILLS	
+326	AUGMENTATION_JACK_OF_ALL_TRADES	number of times earned
+327	AUGMENTATION_RESISTANCE_NETHER	number of times earned
+328	AUGMENTATION_INFUSED_VOID_MAGIC	number of times earned
+329	WEAKNESS_RATING	Weakening Curse Rating
+330	NETHER_OVER_TIME	DOT spell related
+331	NETHER_RESIST_RATING	Damage Resistance Reduction amount based on void DOTs applied
+332	LUMINANCE_AWARD	amount of luminance xp  a creature awards on death
+333	LUM_AUG_DAMAGE_RATING	number of times earned
+334	LUM_AUG_DAMAGE_REDUCTION_RATING	number of times earned
+335	LUM_AUG_CRIT_DAMAGE_RATING	number of times earned
+336	LUM_AUG_CRIT_REDUCTION_RATING	number of times earned
+337	LUM_AUG_SURGE_EFFECT_RATING	number of times earned
+338	LUM_AUG_SURGE_CHANCE_RATING	number of times earned
+339	LUM_AUG_ITEM_MANA_USAGE	number of times earned
+340	LUM_AUG_ITEM_MANA_GAIN	number of times earned
+341	LUM_AUG_VITALITY	number of times earned
+342	LUM_AUG_HEALING_RATING	number of times earned
+343	LUM_AUG_SKILLED_CRAFT	number of times earned
+344	LUM_AUG_SKILLED_SPEC	number of times earned
+345	LUM_AUG_NO_DESTROY_CRAFT	number of times earned
+346	RESTRICTERACTION	
+347	OLTHOI_LOOT_TIMESTAMP	
+348	OLTHOI_LOOT_STEP	
+349	USE_CREATES_CONTRACT_ID	"upon using a contract,  add to contracts tab by id"
+350	DOT_RESIST_RATING	damage over time resistance rating
+351	LIFE_RESIST_RATING	life magic resist rating
+352	CLOAK_WEAVE_PROC	only used for the -200 proc cloaks
+353	WEAPON_TYPE	Sets the basic weapon type. 
+354	MELEE_MASTERY	melee mastery id
+355	RANGED_MASTERY	ranged mastery id
+356	SNEAK_ATTACK_RATING	
+357	RECKLESSNESS_RATING	
+358	DECEPTION_RATING	
+359	COMBAT_PET_RANGE	
+360	WEAPON_AURA_DAMAGE	
+361	WEAPON_AURA_SPEED	
+362	SUMMONING_MASTERY	
+363	HEARTBEAT_LIFESPAN	
+364	USE_LEVEL_REQUIREMENT	
+365	LUM_AUG_ALL_SKILLS	Aura of the World # of solves
+366	USE_REQUIRES_SKILL	summoning pet skill requirement.
+367	USE_REQUIRES_SKILL_LEVEL	summoning pet skill requirement value
+368	USE_REQUIRES_SKILL_SPEC	summoning pet spec skill requirement
+369	USE_REQUIRES_LEVEL	summoning pet required level
+370	GEAR_DAMAGE	total damage rating of equipped gear 
+371	GEAR_DAMAGE_RESIST	total damage resist rating of equipped gear 
+372	GEAR_CRIT	total crit chance rating of equipped gear
+373	GEAR_CRIT_RESIST	total crit resist rating of equipped gear
+374	GEAR_CRIT_DAMAGE	total crit damage rating of equipped gear
+375	GEAR_CRIT_DAMAGE_RESIST	total crit damage resist rating of equipped gear
+376	GEAR_HEALING_BOOST	total heal boost rating of equipped gear
+377	GEAR_NETHER_RESIST	total nether damage resist rating of equipped gear
+378	GEAR_LIFE_RESIST	total life resist rating of equipped gear
+379	GEAR_MAX_HEALTH	total vitality rating of gear (and maybe health of summons?)
+380	Unknown	
+381	PK_DAMAGE	Player PK Damage Rating
+382	PK_DAMAGE_RESIST	Player PK Damage Resist Rating
+383	GEAR_PK_DAMAGE	Gear PK Damage Rating
+384	GEAR_PK_DAMAGE_RESIST	Gear PK Damage Resist Rating
+385	Unknown	
+386	OVERPOWER	Overpower Value
+387	OVERPOWER_RESIST	Overpower Resist Value
+388	GEAR_OVERPOWER	Gear Overpower Value
+389	GEAR_OVERPOWER_RESIST	Gear Overpower Resist
+390	ENLIGHTENMENT	number of times enlightened

@@ -1,0 +1,27 @@
+1	LOCATION	current location of object?
+2	DESTINATION	portal destination location
+3	INSTANTIATION	location of object spawn?
+4	SANCTUARY	lifestone position
+5	HOME	creature home position
+6	ACTIVATION_MOVE	
+7	TARGET	
+8	LINKED_PORTAL_ONE	primary portal tie
+9	LAST_PORTAL	portal recall position?
+10	PORTAL_STORM	
+11	CRASH_AND_TURN	
+12	PORTAL_SUMMON_LOC	portal is summoned in specific location on event (usually boss killed)
+13	HOUSE_BOOT	house bootspot location
+14	LAST_OUTSIDE_DEATH	for /corpse output
+15	LINKED_LIFESTONE	lifestone recall spell
+16	LINKED_PORTAL_TWO	secondary portal tie
+17	SAVE_1	admin @save/home 1 command
+18	SAVE_2	admin @save/home 2 command
+19	SAVE_3	admin @save/home 3 command
+20	SAVE_4	admin @save/home 4 command
+21	SAVE_5	admin @save/home 5 command
+22	SAVE_6	admin @save/home 6 command
+23	SAVE_7	admin @save/home 7 command
+24	SAVE_8	admin @save/home 8 command
+25	SAVE_9	admin @save/home 9 command
+26	RELATIVE_DESTINATION	"destination relative to the current position, only used on a single test portal"
+27	TELEPORTED_CHARACTER	admin property for the command to return players to their last location?

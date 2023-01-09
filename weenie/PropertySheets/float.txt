@@ -1,0 +1,171 @@
+1	HEARTBEAT_INTERVAL	length of time between heartbeat emote actions
+2	HEARTBEAT_TIMESTAMP	timestamp of last heartbeat emote action
+3	HEALTH_RATE	Defines regeneration rate of health: 0.0 - 5000.0 (usually 0.0 - 10.0)
+4	STAMINA_RATE	Defines regeneration rate of stamina: 0.0 - 5000.0 (usually 0.0 - 10.0)
+5	MANA_RATE	"Defines how fast mana is lost from item, set to -0.033 for 1pt/30sec"
+6	HEALTH_UPON_RESURRECTION	percentage of health at spawn: 0.01 - 1.0
+7	STAMINA_UPON_RESURRECTION	percentage of health at spawn: 0.01 - 1.0
+8	MANA_UPON_RESURRECTION	percentage of health at spawn: 0.01 - 1.0
+9	START_TIME	generator start time
+10	STOP_TIME	generator end time
+11	RESET_INTERVAL	generator reset interval
+12	SHADE	
+13	ARMOR_MOD_VS_SLASH	0.0 - 2.0
+14	ARMOR_MOD_VS_PIERCE	0.0 - 2.0
+15	ARMOR_MOD_VS_BLUDGEON	0.0 - 2.0
+16	ARMOR_MOD_VS_COLD	0.0 - 2.0
+17	ARMOR_MOD_VS_FIRE	0.0 - 2.0
+18	ARMOR_MOD_VS_ACID	0.0 - 2.0
+19	ARMOR_MOD_VS_ELECTRIC	0.0 - 2.0
+20	COMBAT_SPEED	
+21	WEAPON_LENGTH	
+22	DAMAGE_VARIANCE	See Variance table
+23	CURRENT_POWER_MOD	power bar setting modifier
+24	ACCURACY_MOD	accuracy bar setting modifier
+25	STRENGTH_MOD	current strength skill modifier
+26	MAXIMUM_VELOCITY	0-50
+27	ROTATION_SPEED	"rotation speed of projectiles: 0, 1, 2, 3.5"
+28	MOTION_TIMESTAMP	
+29	WEAPON_DEFENSE	Melee Defense bonus multiplier. Example: Set to 1.15 for 15%
+30	WIMPY_LEVEL	
+31	VISUAL_AWARENESS_RANGE	0-75  -- aggro range
+32	AURAL_AWARENESS_RANGE	
+33	PERCEPTION_LEVEL	
+34	POWERUP_TIME	0-5
+35	MAX_CHARGE_DISTANCE	character property for charge distance?
+36	CHARGE_SPEED	"0.5-3, usually 1"
+37	BUY_PRICE	Vendor buy rate modifier to item value: 0.1-2
+38	SELL_PRICE	Vendor sell rate modifier to item value: 1-50 (usually 1-2)
+39	DEFAULT_SCALE	
+40	LOCKPICK_MOD	"1 on all lockpicks, related to LOCKPICK_MOD_INT"
+41	REGENERATION_INTERVAL	"generator, chest, creature regeneration rate (seconds)"
+42	REGENERATION_TIMESTAMP	timestamp of last regeneration
+43	GENERATOR_RADIUS	0-45
+44	TIME_TO_ROT	"-1, 0, 30, 900 (seconds)"
+45	DEATH_TIMESTAMP	timestamp of last death
+46	PK_TIMESTAMP	timestamp of turning pk
+47	VICTIM_TIMESTAMP	timestamp of last pk kill
+48	LOGIN_TIMESTAMP	current login timestamp
+49	CREATION_TIMESTAMP	character creation timestamp
+50	MINIMUM_TIME_SINCE_PK	on all pk/npk altars. 3 hour timer (10800 seconds)
+51	DEPRECATED_HOUSEKEEPING_PRIORITY	
+52	ABUSE_LOGGING_TIMESTAMP	Timestamp of abuse report
+53	LAST_PORTAL_TELEPORT_TIMESTAMP	timestamp of the most recent teleport
+54	USE_RADIUS	-0.1 - 30.  Distance you can use an object
+55	HOME_RADIUS	"5-250, on creatures, not used often"
+56	RELEASED_TIMESTAMP	
+57	MIN_HOME_RADIUS	related to HOME_RADIUS
+58	FACING	
+59	RESET_TIMESTAMP	
+60	LOGOFF_TIMESTAMP	timestamp set at character logout
+61	ECON_RECOVERY_INTERVAL	local spell economy recovery rate?
+62	WEAPON_OFFENSE	Attack Skill bonus multiplier. Example: Set to 1.20 for 20%
+63	DAMAGE_MOD	Damage Modifier on Missile Weapons
+64	RESIST_SLASH	"creature elemental resistance 0-500, usually 0.0-1"
+65	RESIST_PIERCE	"creature elemental resistance 0-500, usually 0.0-1"
+66	RESIST_BLUDGEON	"creature elemental resistance 0-500, usually 0.0-1"
+67	RESIST_FIRE	"creature elemental resistance 0-500, usually 0.0-1"
+68	RESIST_COLD	"creature elemental resistance 0-500, usually 0.0-1"
+69	RESIST_ACID	"creature elemental resistance 0-500, usually 0.0-1"
+70	RESIST_ELECTRIC	"creature elemental resistance 0-500, usually 0.0-1"
+71	RESIST_HEALTH_BOOST	"cannot infuse health, 1"
+72	RESIST_STAMINA_DRAIN	stamina drain resistance 0.0-1
+73	RESIST_STAMINA_BOOST	"cannot infuse stamina, 1"
+74	RESIST_MANA_DRAIN	mana drain resistance 0.0-1
+75	RESIST_MANA_BOOST	"cannot infuse mana, 1"
+76	TRANSLUCENCY	"scale 0-1,  0 = opaque 1 = transparent"
+77	PHYSICS_SCRIPT_INTENSITY	1
+78	FRICTION	0 or 1
+79	ELASTICITY	0
+80	AI_USE_MAGIC_DELAY	"0-3, delay modifier between melee/magic attacks"
+81	ITEM_MIN_SPELLCRAFT_MOD	
+82	ITEM_MAX_SPELLCRAFT_MOD	
+83	ITEM_RANK_PROBABILITY	
+84	SHADE2	
+85	SHADE3	
+86	SHADE4	
+87	ITEM_EFFICIENCY	"mana stone efficiency rating. 1.0 = 100%, 3.0 = 300%"
+88	ITEM_MANA_UPDATE_TIMESTAMP	timestamp of last mana update: filling and draining?
+89	SPELL_GESTURE_SPEED_MOD	movement speed modifier of spell animations?
+90	SPELL_STANCE_SPEED_MOD	movement speed modifier of moving in and out of spell combat mode?
+91	ALLEGIANCE_APPRAISAL_TIMESTAMP	
+92	POWER_LEVEL	related to CURRENT_POWER_MOD?
+93	ACCURACY_LEVEL	related to ACCURACY_MOD?
+94	ATTACK_ANGLE	
+95	ATTACK_TIMESTAMP	
+96	CHECKPOINT_TIMESTAMP	
+97	SOLD_TIMESTAMP	
+98	USE_TIMESTAMP	
+99	USE_LOCK_TIMESTAMP	
+100	HEALKIT_MOD	healing kit restoration bonus. 1.0 = 100%
+101	FROZEN_TIMESTAMP	
+102	HEALTH_RATE_MOD	health regen rate?
+103	ALLEGIANCE_SWEAR_TIMESTAMP	timestamp of swearing to patron
+104	OBVIOUS_RADAR_RANGE	10
+105	HOTSPOT_CYCLE_TIME	hotspot cycle time in seconds
+106	HOTSPOT_CYCLE_TIME_VARIANCE	"0-1, cycle time variance"
+107	SPAM_TIMESTAMP	related to chat spam limiter
+108	SPAM_RATE	related to chat spam limiter
+109	BOND_WIELDED_TREASURE	"0, .25, .8, 1"
+110	BULK_MOD	0.8-1.67
+111	SIZE_MOD	"1-4.5, usually 1"
+112	GAG_TIMESTAMP	time of chat gag?
+113	GENERATOR_UPDATE_TIMESTAMP	
+114	DEATH_SPAM_TIMESTAMP	
+115	DEATH_SPAM_RATE	
+116	WILD_ATTACK_PROBABILITY	
+117	FOCUSED_PROBABILITY	".5, .6, .7, .8 -- chance to change targets during combat when attacked?"
+118	CRASH_AND_TURN_PROBABILITY	
+119	CRASH_AND_TURN_RADIUS	
+120	CRASH_AND_TURN_BIAS	
+121	GENERATOR_INITIAL_DELAY	generator initial delay before cycle time begins?
+122	AI_ACQUIRE_HEALTH	"2, 3, 5, 10, 20, 50"
+123	AI_ACQUIRE_STAMINA	always 2
+124	AI_ACQUIRE_MANA	always 2
+125	RESIST_HEALTH_DRAIN	"0.0-1, resistant to health drains"
+126	LIFESTONE_PROTECTION_TIMESTAMP	timestamp when lifestone protection begins
+127	AI_COUNTERACT_ENCHANTMENT	"always 2, probability that the object will counter buff"
+128	AI_DISPEL_ENCHANTMENT	"always 1, probability that the object will dispel debuffs"
+129	TRADE_TIMESTAMP	timestamp of open trade window
+130	AI_TARGETED_DETECTION_RADIUS	
+131	EMOTE_PRIORITY	"always 1, only seen on stopgaps and controllers."
+132	LAST_TELEPORT_START_TIMESTAMP	
+133	EVENT_SPAM_TIMESTAMP	
+134	EVENT_SPAM_RATE	
+135	INVENTORY_OFFSET	"only on house hooks, always set to 20"
+136	CRITICAL_MULTIPLIER	Crushing Blow multiplier
+137	MANA_STONE_DESTROY_CHANCE	chance of stone destruction when using filled stone on target
+138	SLAYER_DAMAGE_BONUS	"1.0-5.0, damage bonus for species slayer weapon"
+139	ALLEGIANCE_INFO_SPAM_TIMESTAMP	timestamp of last allegiance info request 
+140	ALLEGIANCE_INFO_SPAM_RATE	rate the server allows new alleg info requests
+141	NEXT_SPELLCAST_TIMESTAMP	
+142	APPRAISAL_REQUESTED_TIMESTAMP	timestamp when ID was requested
+143	APPRAISAL_HEARTBEAT_DUE_TIMESTAMP	timestamp of automatic ID update
+144	MANA_CONVERSION_MOD	"weapon mana conversion modifier %, 0.0-1"
+145	LAST_PK_ATTACK_TIMESTAMP	timestamp of last pk encounter
+146	FELLOWSHIP_UPDATE_TIMESTAMP	timestamp of last fellowship vital update?
+147	CRITICAL_FREQUENCY	Biting Strike multiplier
+148	LIMBO_START_TIMESTAMP	timestamp of admin putting player in limbo
+149	WEAPON_MISSILE_DEFENSE	Missile Defense bonus multiplier. Example: Set to 1.025 for 2.5%
+150	WEAPON_MAGIC_DEFENSE	Magic Defense bonus multiplier. Example: Set to 1.025 for 2.5%
+151	IGNORE_SHIELD	"0.0-1, shield hollow modifier"
+152	ELEMENTAL_DAMAGE_MOD	"% elemental damage modifier, 1.0-1.5"
+153	START_MISSILE_ATTACK_TIMESTAMP	
+154	LAST_RARE_USED_TIMESTAMP	"rare used timestamp, to limit rare use"
+155	IGNORE_ARMOR	1 = Properties:Armor Cleaving
+156	PROC_SPELL_RATE	rate of proc spell on cloak/aetheria?
+157	RESISTANCE_MODIFIER	Resistance Rending amount
+158	ALLEGIANCE_GAG_TIMESTAMP	timestamp of allegiance gag start
+159	ABSORB_MAGIC_DAMAGE	magic absorption rate.
+160	CACHED_MAX_ABSORB_MAGIC_DAMAGE	
+161	GAG_DURATION	length of chat gag in seconds
+162	ALLEGIANCE_GAG_DURATION	length of allegiance gag
+163	GLOBAL_XP_MOD	"global xp modifier, how double xp weekends could be enabled?"
+164	HEALING_MODIFIER	healing modifier for peace/combat?
+165	ARMOR_MOD_VS_NETHER	0.0 - 2.0
+166	RESIST_NETHER	"creature elemental resistance 0-500, usually 0.0-1"
+167	COOLDOWN_DURATION	5 second cooldown fizzle between casting war and void?
+168	WEAPON_AURA_OFFENSE	weapon buffs are cast on character and apply to all weapons equipped
+169	WEAPON_AURA_DEFENSE	weapon buffs are cast on character and apply to all weapons equipped
+170	WEAPON_AURA_ELEMENTAL	weapon buffs are cast on character and apply to all weapons equipped
+171	WEAPON_AURA_MANA_CONV	weapon buffs are cast on character and apply to all weapons equipped
