@@ -1,6 +1,6 @@
 <?php
   if(!$title){
-  	$title = "Drunkenfell Live!";
+  	$title = $siteTitle;
   }
 ?>
 <html>

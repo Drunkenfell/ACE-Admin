@@ -48,7 +48,6 @@ function showDetails($weenie){
     extract($GLOBALS);
     $weenie = getRows("ace_world","weenie","*","class_Id=".$weenie[0]);
     
-
     $output['weenie']=$weenie[0];
     $output['string']=getRows("ace_world","weenie_properties_string","type,value","object_Id=".$output['weenie'][0]);
     $output['bool']=getRows("ace_world","weenie_properties_bool","type,value","object_Id=".$output['weenie'][0]);
@@ -69,7 +68,6 @@ function showDetails($weenie){
     $output['emotereferences']=getRows("ace_world","weenie_properties_emote","object_Id","weenie_Class_Id=".$output['weenie'][0]);
     //$output['emoteactionreferences']=getRows("ace_world","weenie_properties_emote_action","object_Id","weenie_Class_Id=".$output['weenie'][0]);
     $output['lbreferences']=getRows("ace_world","landblock_instance","HEX(landblock),CONCAT ('/teleloc 0x',HEX(obj_Cell_Id), ' [', origin_X,' ',origin_Y,' ',origin_Z,'] ',angles_W,' ',angles_X,' ',angles_Y,' ',angles_Z)","weenie_Class_Id=".$output['weenie'][0]);
-    //dump($output);die();
     
     $propDir = "PropertySheets/";
     foreach($output as $label => $records){
@@ -78,7 +76,7 @@ function showDetails($weenie){
         ?>
         <table class='content' width=33% cellpadding=2 cellspacing=2 border=1>
             <tr>
-                <td colspan=4 align=center><?php echo $label;?></td>
+                <td colspan=4 align=center><B><?php echo strtoupper($label);?></B></td>
             </tr>
         <?php
         $propfile = file($propDir.$label.".txt");
@@ -132,8 +130,6 @@ function showDetails($weenie){
                 }
                 break;
             case 'lbreferences':
-                //dump($label);
-                //dump($records);
                 ?>
                 <tr>
                         <td>Landblock</td>
@@ -149,9 +145,6 @@ function showDetails($weenie){
                 }
                 break;
             case 'emotereferences':
-                    //dump($label);
-                    //dump($records);
-                    
                     $propfile = file($propDir."weenietype.txt");
                             $properties=[];
                             foreach($propfile as $propLine){

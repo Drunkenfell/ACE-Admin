@@ -14,5 +14,7 @@ $dbUser = "mysqluser";
 $dbPass = "mysqlpassword";
 $db="ace_world";
 
+$siteTitle = "ACE-Admin Tools"
+
 //$auth_required = true;
 ?>
