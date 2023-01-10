@@ -16,19 +16,7 @@
     <head></head>
     <body>
         <table width=100% height=100% cellpadding=0 cellspacing=0 border=0 class="content">
-          <form name="searchForm" id=searchForm action=weenies.php method=get>
-            <tr height=15>
-                <td width=12%></td>
-                <td width=12% align=right>Search:</td>
-                <td width=12%><input type=text name="search" id="search" value=""></td>
-                <td width=12%></td>
-                <td width=12%></td>
-                <td width=12%></td>
-                <td width=12%></td>
-                <td width=12%></td>
-            </tr>
-              </form>
-            <tr><td colspan=8 valign=top><?php 
+          <tr><td colspan=8 valign=top><?php 
                 switch(count($r)){
                     case 1:
                         showDetails($r[0]);
