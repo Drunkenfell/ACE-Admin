@@ -38,6 +38,7 @@ function showDetails($weenie){
     
     $output['weenie']=$weenie[0];
     $output['string']=getRows("ace_world","weenie_properties_string","type,value","object_Id=".$output['weenie'][0]);
+    
     $output['bool']=getRows("ace_world","weenie_properties_bool","type,value","object_Id=".$output['weenie'][0]);
     $output['float']=getRows("ace_world","weenie_properties_float","type,value","object_Id=".$output['weenie'][0]);
     $output['int']=getRows("ace_world","weenie_properties_int","type,value","object_Id=".$output['weenie'][0]);
@@ -68,6 +69,9 @@ function showDetails($weenie){
         <table class='content' width=33% cellpadding=2 cellspacing=2 border=1>
             <tr>
                 <td colspan=4 align=center><B><?php echo strtoupper($label);?></B></td>
+            </tr>
+            <tr>
+                <td colspan=4 align=left><B>Search for: <a href="http://www.drunkenfell.com/wiki/index.php?search=<?php echo $output['string'][0][1];?>" target="_blank"><?php echo $output['string'][0][1];?></a></B></td>
             </tr>
         <?php
         $propfile = file($propDir.$label.".txt");

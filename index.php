@@ -32,6 +32,14 @@ $logData = array_reverse($logData);
         <tr>
             <td colspan=8 align=center height=15><?php echo $siteTitle;?></td>
         </tr>
+        <tr height=10>
+          <td colspan=3 align=center> Log Search</td>
+          <td>&nbsp;</td>
+          <td colspan=2 align=center> Weenie Search</td>
+          <td>Spell Search</td>
+          <td>&nbsp;</td>
+
+        </tr>
         <tr height=15>
         <form name="LogController" id="LogController" method="get" target=main action=logs.php>
             <td width=12% align=right>LogDate:<select name=SearchDate id=SearchDate>
@@ -45,11 +53,14 @@ $logData = array_reverse($logData);
             <td width=12% align=right>Log String:</td>
             <td width=12%><input type=text name=SearchString id=SearchString value="" width=12%></td></form>
             <td width=12%>&nbsp;</td>
-            <td width=12% align=right>WCID Search:</td><form name="wcidSearch" id="wcidSearch" method="get" target=main action="weenie/weenies.php">
-            <td width=12%><input type=text name=search id=search value=""></td>
+            <td width=12% align=right>&nbsp;</td>
+            <form name="wcidSearch" id="wcidSearch" method="get" target=main action="weenie/weenies.php">
+              <td width=12%><input type=text name=search id=search value=""></td></form>
+            <form name="spellSearch" id="spellSearch" method="get" target=main action="weenie/spells.php">
+              <td width=12%><input type=text name=SearchString id=SearchString value=""></td>
+            </form>
             <td width=12%><a href="Files/" target=main>Log Files</a></td>
-            <td width=12%>&nbsp;</td>
-        </tr></form>
+        </tr>
         <tr>
             <td colspan=8><iframe height=100% width=100% name=main id=main src=""></iframe></td>
         </tr>
