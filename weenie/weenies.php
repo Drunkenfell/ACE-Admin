@@ -52,7 +52,7 @@ function showDetails($weenie){
     $output['skill']=getRows("ace_world","weenie_properties_skill","type,s_a_c,init_Level,level_From_P_P,p_p","object_Id=".$output['weenie'][0]);
     $output['int64']=getRows("ace_world","weenie_properties_int64","type,value","object_Id=".$output['weenie'][0]);
     $output['position']=getRows("ace_world","weenie_properties_position","position_Type,CONCAT ('/teleloc 0x',HEX(obj_Cell_Id), ' [', origin_X,' ',origin_Y,' ',origin_Z,'] ',angles_W,' ',angles_X,' ',angles_Y,' ',angles_Z)","object_Id=".$output['weenie'][0]);
-
+    $output['emote']=getRows("ace_world","weenie_properties_emote","*","object_Id=".$output['weenie'][0]);
     $output['genreferences']=getRows("ace_world","weenie_properties_generator","object_Id","weenie_Class_Id=".$output['weenie'][0]);
     $output['emotereferences']=getRows("ace_world","weenie_properties_emote","object_Id","weenie_Class_Id=".$output['weenie'][0]);
     //$output['emoteactionreferences']=getRows("ace_world","weenie_properties_emote_action","object_Id","weenie_Class_Id=".$output['weenie'][0]);
@@ -60,6 +60,15 @@ function showDetails($weenie){
     $output['encounterreferences']=getRows("ace_world","encounter","HEX(landblock),cell_X,Cell_Y","weenie_Class_Id=".$output['weenie'][0]);
     
     $propDir = "PropertySheets/";
+    $emoteFields = explode(",","id,object_Id,category,probability,weenie_Class_Id,style,substyle,quest,vendor_Type,min_Health,max_Health");
+    $eaFields=explode(",","id,emote_Id,order,type,delay,extent,motion,message,test_String,min,max,min_64,max_64,min_Dbl,max_Dbl,stat,display,amount,amount_64,hero_X_P_64,percent,spell_Id,wealth_Rating,treasure_Class,treasure_Type,p_Script,sound,destination_Type,weenie_Class_Id,stack_Size,palette,shade,try_To_Bond,obj_Cell_Id,origin_X,origin_Y,origin_Z,angles_W,angles_X,angles_Y,angles_Z");
+    ?>
+    <table class='content' width=33% cellpadding=2 cellspacing=2 border=1>
+        <tr>
+            <td colspan=4 align=left><B>Search for: <a href="http://www.drunkenfell.com/wiki/index.php?search=<?php echo $output['string'][0][1];?>" target="_blank"><?php echo $output['string'][0][1];?></a></B></td>
+        </tr>
+    </table>
+    <?php
     foreach($output as $label => $records){
         echo PHP_EOL;
         echo "".PHP_EOL;
@@ -68,10 +77,7 @@ function showDetails($weenie){
         }?>
         <table class='content' width=33% cellpadding=2 cellspacing=2 border=1>
             <tr>
-                <td colspan=4 align=center><B><?php echo strtoupper($label);?></B></td>
-            </tr>
-            <tr>
-                <td colspan=4 align=left><B>Search for: <a href="http://www.drunkenfell.com/wiki/index.php?search=<?php echo $output['string'][0][1];?>" target="_blank"><?php echo $output['string'][0][1];?></a></B></td>
+                <td colspan=11 align=center><B><?php echo strtoupper($label);?></B></td>
             </tr>
         <?php
         $propfile = file($propDir.$label.".txt");
@@ -137,6 +143,62 @@ function showDetails($weenie){
                         <td><?php echo $record[0]; ?></td>
                         <td colspan=5 nowrap><?php echo $record[1]; ?></td>
                     <?php
+                }
+                break;
+            case 'emote':
+                foreach($records as $record){
+                    $emoteActions=getRows("ace_world","weenie_properties_emote_action","*","emote_Id=".$record[0]);
+                    echo "<tr>";
+                    foreach($emoteFields as $fieldLabel){
+                        echo "<td nowrap><b>".strtoupper(str_replace("_"," ",$fieldLabel))."</b></td>";
+                    }
+                    echo "</tr>";
+                    echo "<tr>";
+                    foreach($record as $eFieldNum => $outputData){
+                        echo "<td nowrap>";
+                        switch(strtolower($emoteFields[$eFieldNum])){
+                            case "weenie_class_id":
+                                if($outputData!==NULL){
+                                    $weenieName = getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$outputData)[0];
+                                    echo $weenieName[0]." - (<a href=weenies.php?search=".$outputData." >".$outputData."</a>)";
+                                }else{
+                                    dump($outputData);
+                                }
+                                break;
+                            default:
+                                dump($outputData);
+                        }
+                        echo "</td>";
+                    ?>
+                        
+                    <?php
+                    }
+                    echo "<td width=100%>&nbsp;</td></tr>";
+                    echo "<tr><td colspan=12><table class='content' width=33% cellpadding=2 cellspacing=2 border=1>";
+                    echo "<tr>";
+                    foreach($eaFields as $eaField){
+                        echo "<td nowrap><B>".strtoupper(str_replace("_"," ",$eaField))."</B></td>";
+                    }
+                    echo "</tr>";
+                    foreach($emoteActions as $emoteAction){
+                        echo "<tr>";
+                        foreach($emoteAction as $fieldNum => $eaOutput){
+                            echo "<td nowrap>";
+                            switch(strtolower($eaFields[$fieldNum])){
+                                case "weenie_class_id":
+                                    if($eaOutput!==NULL){
+                                        $weenieName = getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$eaOutput)[0];
+                                        echo $weenieName[0]." - (<a href=weenies.php?search=".$eaOutput." >".$eaOutput."</a>)";
+                                    }
+                                    break;
+                                default:
+                                    dump($eaOutput);
+                            }
+                            echo "</td>";
+                        }
+                    }
+                    echo "</tr>";
+                    echo "</table>";
                 }
                 break;
             case 'encounterreferences':
