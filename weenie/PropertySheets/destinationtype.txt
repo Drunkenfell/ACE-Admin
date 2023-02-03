@@ -1,0 +1,8 @@
+Undef	0
+Contain	1
+Wield	2
+Shop	4
+Treasure	8
+ContainTreasure	9
+HouseBuy	16
+HouseRent	32

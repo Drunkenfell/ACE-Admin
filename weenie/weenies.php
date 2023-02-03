@@ -34,34 +34,75 @@
 <?php
 function showDetails($weenie){
     extract($GLOBALS);
-    $weenie = getRows("ace_world","weenie","*","class_Id=".$weenie[0]);
+    $propDir = "PropertySheets/";
     
+    $propfile = file($propDir."emotecategory.txt");
+    $eCatProps=[];
+    foreach($propfile as $ecatLine){
+        $cat=explode("	",str_replace(chr(13).chr(10),"",$ecatLine));
+        $eCatProps[$cat[1]]=$cat[0];
+    }
+    $propfile = file($propDir."emotetype.txt");
+    $eTypeProps=[];
+    foreach($propfile as $eTypeLine){
+        $type=explode("	",str_replace(chr(13).chr(10),"",$eTypeLine));
+        $etypeProps[$type[1]]=$type[0];
+    }
+    $propfile = file($propDir."motion.txt");
+    $motionProps=[];
+    foreach($propfile as $motionLine){
+        $motion=explode("	",str_replace(chr(13).chr(10),"",$motionLine));
+        $motionProps[$motion[1]]=$motion[0];
+    }
+    $propfile = file($propDir."destinationtype.txt");
+    $destProps=[];
+    foreach($propfile as $destLine){
+        $dest=explode("	",str_replace(chr(13).chr(10),"",$destLine));
+        $destProps[$dest[1]]=$dest[0];
+    }
+    $propfile = file($propDir."weenietype.txt");
+    $weenieTypes=[];
+    foreach($propfile as $propLine){
+        $prop=explode("	",$propLine);
+        $weenieTypes[$prop[0]]=$prop[1];
+    }
+    $propfile = file($propDir."skill.txt");
+    $skills=[];
+    foreach($propfile as $propLine){
+        $prop=explode("	",$propLine);
+        $skills[$prop[0]]=$prop[1];
+    }
+    
+    $emoteFields = ["id","object_Id","category","probability","weenie_Class_Id","style","substyle","quest","vendor_Type","min_Health","max_Health"];
+    $eaFields=["id","emote_Id","order","type","delay","extent","motion","message","test_String","min","max","min_64","max_64","min_Dbl","max_Dbl","stat","display","amount","amount_64","hero_X_P_64","percent","spell_Id","wealth_Rating","treasure_Class","treasure_Type","p_Script","sound","destination_Type","weenie_Class_Id","stack_Size","palette","shade","try_To_Bond","obj_Cell_Id","origin_X","origin_Y","origin_Z","angles_W","angles_X","angles_Y","angles_Z"];
+    $createFields = ["id","object_Id","destination_Type","weenie_Class_Id","stack_Size","palette","shade","try_To_Bond"];
+    $recipe_ref_Fields = ["id","skill","difficulty","success_W_C_I_D","success_Message","success_Amount","fail_Message","fail_Amount"];
+    $cookbook_Fields=["source_W_C_I_D","target_W_C_I_D","recipe_Id"];
+
+    $weenie = getRows("ace_world","weenie","*","class_Id=".$weenie[0]);
     $output['weenie']=$weenie[0];
     $output['string']=getRows("ace_world","weenie_properties_string","type,value","object_Id=".$output['weenie'][0]);
-    
     $output['bool']=getRows("ace_world","weenie_properties_bool","type,value","object_Id=".$output['weenie'][0]);
     $output['float']=getRows("ace_world","weenie_properties_float","type,value","object_Id=".$output['weenie'][0]);
     $output['int']=getRows("ace_world","weenie_properties_int","type,value","object_Id=".$output['weenie'][0]);
     $output['did']=getRows("ace_world","weenie_properties_d_i_d","type,value","object_Id=".$output['weenie'][0]);
-
     $output['attribute']=getRows("ace_world","weenie_properties_attribute","type,init_Level,level_From_C_P,c_P_Spent","object_Id=".$output['weenie'][0]);
     $output['attribute2']=getRows("ace_world","weenie_properties_attribute_2nd","type,init_Level,level_From_C_P,c_P_Spent","object_Id=".$output['weenie'][0]);
-    
     $output['iid']=getRows("ace_world","weenie_properties_i_i_d","type,value","object_Id=".$output['weenie'][0]);
-    
     $output['skill']=getRows("ace_world","weenie_properties_skill","type,s_a_c,init_Level,level_From_P_P,p_p","object_Id=".$output['weenie'][0]);
     $output['int64']=getRows("ace_world","weenie_properties_int64","type,value","object_Id=".$output['weenie'][0]);
     $output['position']=getRows("ace_world","weenie_properties_position","position_Type,CONCAT ('/teleloc 0x',HEX(obj_Cell_Id), ' [', origin_X,' ',origin_Y,' ',origin_Z,'] ',angles_W,' ',angles_X,' ',angles_Y,' ',angles_Z)","object_Id=".$output['weenie'][0]);
     $output['emote']=getRows("ace_world","weenie_properties_emote","*","object_Id=".$output['weenie'][0]);
     $output['genreferences']=getRows("ace_world","weenie_properties_generator","object_Id","weenie_Class_Id=".$output['weenie'][0]);
     $output['emotereferences']=getRows("ace_world","weenie_properties_emote","object_Id","weenie_Class_Id=".$output['weenie'][0]);
-    //$output['emoteactionreferences']=getRows("ace_world","weenie_properties_emote_action","object_Id","weenie_Class_Id=".$output['weenie'][0]);
+    $output['create_list']=getRows("ace_world","weenie_properties_create_list",implode(",",$createFields),"object_Id=".$output['weenie'][0]);
+    $output['create_ref']=getRows("ace_world","weenie_properties_create_list",implode(",",$createFields),"weenie_Class_Id=".$output['weenie'][0]);
     $output['lbreferences']=getRows("ace_world","landblock_instance","HEX(landblock),CONCAT ('/teleloc 0x',HEX(obj_Cell_Id), ' [', origin_X,' ',origin_Y,' ',origin_Z,'] ',angles_W,' ',angles_X,' ',angles_Y,' ',angles_Z)","weenie_Class_Id=".$output['weenie'][0]);
     $output['encounterreferences']=getRows("ace_world","encounter","HEX(landblock),cell_X,Cell_Y","weenie_Class_Id=".$output['weenie'][0]);
-    
-    $propDir = "PropertySheets/";
-    $emoteFields = explode(",","id,object_Id,category,probability,weenie_Class_Id,style,substyle,quest,vendor_Type,min_Health,max_Health");
-    $eaFields=explode(",","id,emote_Id,order,type,delay,extent,motion,message,test_String,min,max,min_64,max_64,min_Dbl,max_Dbl,stat,display,amount,amount_64,hero_X_P_64,percent,spell_Id,wealth_Rating,treasure_Class,treasure_Type,p_Script,sound,destination_Type,weenie_Class_Id,stack_Size,palette,shade,try_To_Bond,obj_Cell_Id,origin_X,origin_Y,origin_Z,angles_W,angles_X,angles_Y,angles_Z");
+    $output['recipe_ref']=getRows("ace_world","recipe",implode(",",$recipe_ref_Fields),"success_W_C_I_D=".$output['weenie'][0]);
+
+    $output['recipe_ingredient']=getRows("ace_world","cook_book",implode(",",$cookbook_Fields),"source_W_C_I_D=".$output['weenie'][0]." OR target_W_C_I_D=".$output['weenie'][0]);
+    //var_dump($output['recipe_ingredient']);die();
     ?>
     <table class='content' width=33% cellpadding=2 cellspacing=2 border=1>
         <tr>
@@ -70,11 +111,11 @@ function showDetails($weenie){
     </table>
     <?php
     foreach($output as $label => $records){
-        echo PHP_EOL;
-        echo "".PHP_EOL;
-        if(count($records)===0){
-            //break;
-        }?>
+      echo PHP_EOL;
+      echo "".PHP_EOL;
+      if(count($records)>0){
+        
+        ?>
         <table class='content' width=33% cellpadding=2 cellspacing=2 border=1>
             <tr>
                 <td colspan=11 align=center><B><?php echo strtoupper($label);?></B></td>
@@ -87,14 +128,94 @@ function showDetails($weenie){
             $properties[$prop[0]]=$prop[1];
         }
         switch(strtolower($label)){
-            case 'weenie':
-                $propfile = file($propDir."weenietype.txt");
-                            $properties=[];
-                            foreach($propfile as $propLine){
-                                $prop=explode("	",$propLine);
-                               $properties[$prop[0]]=$prop[1];
+            case "recipe_ref":
+                
+                echo "<tr><td nowrap><B>SOURCE</B></td><td nowrap><B>TARGET</B></td>";
+                foreach($recipe_ref_Fields as $fieldLabel){
+                    echo "<td nowrap><b>".strtoupper(str_replace("_"," ",$fieldLabel))."</b></td>";
+                }
+                echo "</tr>";
+                
+                
+                foreach($records as $record){
+                    echo "<tr>";
+                    $cookbook = getRows("ace_world","cook_book",implode(",",$cookbookFields),"recipe_Id=".$record[0])[0];
+                    $source=getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$cookbook[2])[0][0]." - (<a href=weenies.php?search=".$cookbook[2].">".$cookbook[2].")";
+                    $target=getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$cookbook[3])[0][0]." - (<a href=weenies.php?search=".$cookbook[3].">".$cookbook[3].")";
+                    echo "<td nowrap>".$source."</td><td nowrap>".$target."</td>";
+                    //dump($cookbook);
+                    foreach($record as $order => $field){
+                        echo "<td nowrap>";
+                        if($field){
+                            switch(strtolower($recipe_ref_Fields[$order])){
+                                case "success_w_c_i_d":
+                                    $success=$field;
+                                    $success=getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$field)[0][0]." - (<a href=weenies.php?search=".$field.">".$field.")";
+                                    echo $success;
+                                    break;
+                                case "skill":
+                                    echo $skills[$field]." - (".$field.")";
+                                    break;
+                                default:
+                                echo $field;
                             }
-                            ?>
+                        }
+                        echo "</td>";
+                    }
+                    
+                    echo "</tr>";
+                }
+                
+                
+                break;
+                case "recipe_ingredient":
+                    //$recipe_ref_Fields = ["id","skill","success_W_C_I_D","success_Message","success_Amount","fail_Message","fail_Amount"];
+                    //$cookbook_Fields=["source_W_C_I_D","target_W_C_I_D","recipe_Id"];
+                
+                    echo "<tr><td nowrap><B>SOURCE</B></td><td nowrap><B>TARGET</B></td>";
+                    foreach($recipe_ref_Fields as $fieldLabel){
+                        echo "<td nowrap><b>".strtoupper(str_replace("_"," ",$fieldLabel))."</b></td>";
+                    }
+                    echo "</tr>";
+                    
+                    
+                    foreach($records as $record){
+                        $source=$record[0];
+                        $target=$record[1];
+                        $source=getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$record[0])[0][0]." - (<a href=weenies.php?search=".$record[0].">".$record[0].")";
+                        $target=getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$record[1])[0][0]." - (<a href=weenies.php?search=".$record[1].">".$record[1].")";
+                        $recipe = getRows("ace_world","recipe",implode(",",$recipe_ref_Fields),"id=".$record[2])[0];
+                        //dump($record);
+                        //foreach($record as $field){
+                            echo "<tr>";
+                            echo "<td nowrap>".$source."</td><td nowrap>".$target."</td>";
+                            
+                            //dump($recipe);
+                            foreach($recipe as $order => $rField){
+                                echo "<td nowrap>";
+                                if($rField){
+                                    
+                                    switch(strtolower($recipe_ref_Fields[$order])){
+                                        case "success_w_c_i_d":
+                                            $success=$field;
+                                            $success=getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$rField)[0][0]." - (<a href=weenies.php?search=".$rField.">".$rField.")";
+                                            echo $success;
+                                            break;
+                                        case "skill":
+                                            echo $skills[$rField]." - (".$rField.")";
+                                            break;
+                                        default:
+                                        echo $rField;
+                                    }
+                                }
+                                echo "</td>";
+                            }
+                        //}
+                        echo "</tr>";
+                    }
+                    break;
+            case 'weenie':
+                           ?>
             <tr>
                     <td>WCID</td>
                     <td>Class Name</td>
@@ -104,7 +225,7 @@ function showDetails($weenie){
             <tr>
                     <td><?php echo $records[0];?></td>
                     <td><?php echo $records[1];?></td>
-                    <td><?php echo "[".$records[2]."] ".$properties[$records[2]];?></td>
+                    <td><?php echo "[".$records[2]."] ".$weenieTypes[$records[2]];?></td>
                     <td><?php echo $records[3];?></td>
             </tr>
                 <?php
@@ -146,19 +267,6 @@ function showDetails($weenie){
                 }
                 break;
             case 'emote':
-                $eCatFile = file($propDir."emotecategory.txt");
-                $eCatProps=[];
-                foreach($eCatFile as $ecatLine){
-                    $cat=explode("	",str_replace(chr(13).chr(10),"",$ecatLine));
-                    $eCatProps[$cat[1]]=$cat[0];
-                }
-                $eTypeFile = file($propDir."emotetype.txt");
-                $eTypeProps=[];
-                foreach($eTypeFile as $eTypeLine){
-                    $type=explode("	",str_replace(chr(13).chr(10),"",$eTypeLine));
-                    $etypeProps[$type[1]]=$type[0];
-                }
-                //dump($etypeProps);
                 foreach($records as $record){
                     $emoteActions=getRows("ace_world","weenie_properties_emote_action","*","emote_Id=".$record[0]);
                     echo "<tr>";
@@ -200,21 +308,21 @@ function showDetails($weenie){
                         echo "<tr>";
                         foreach($emoteAction as $fieldNum => $eaOutput){
                             echo "<td nowrap>";
-                            switch(strtolower($eaFields[$fieldNum])){
-                                case "weenie_class_id":
-                                    if($eaOutput!==NULL){
+                            if($eaOutput){
+                                switch(strtolower($eaFields[$fieldNum])){
+                                    case "weenie_class_id":
                                         $weenieName = getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$eaOutput)[0];
                                         echo $weenieName[0]." - (<a href=weenies.php?search=".$eaOutput." >".$eaOutput."</a>)";
-                                    }
-                                    break;
-                                //case "motion":
-
-                                //    break;
-                                case "type":
-                                    echo $etypeProps[$eaOutput]." (".$eaOutput.")";
-                                    break;
-                                default:
-                                    dump($eaOutput);
+                                        break;
+                                    case "motion":
+                                        echo $motionProps["0x".dechex($eaOutput)]." (".$eaOutput.")";
+                                        break;
+                                    case "type":
+                                        echo $etypeProps[$eaOutput]." (".$eaOutput.")";
+                                        break;
+                                    default:
+                                        dump($eaOutput);
+                                }
                             }
                             echo "</td>";
                         }
@@ -222,6 +330,73 @@ function showDetails($weenie){
                     echo "</tr>";
                     echo "</table>";
                 }
+                break;
+            case 'create_list':
+                echo "<tr>";
+                foreach($createFields as $fieldLabel){
+                    echo "<td nowrap><b>".strtoupper(str_replace("_"," ",$fieldLabel))."</b></td>";
+                }
+                echo "</tr>";
+                
+                foreach($records as $record){
+                    echo "<tr>";
+                    foreach($record as $order => $field){
+                        echo "<td nowrap>";
+                        if($field){
+                            switch(strtolower($createFields[$order])){
+                                case "destination_type":
+                                    echo $destProps[$field]." - (".$field.")";
+                                    break;
+                                case "weenie_class_id":
+                                    $weenieName = getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$field)[0];
+                                    echo $weenieName[0]." - (<a href=weenies.php?search=".$field." >".$field."</a>)";
+                                    break;
+                                default:
+                                    echo $field;
+                            }
+                        }
+                        echo "</td>";
+                    }
+                    echo "</tr>";
+                }
+                
+                //dump($records);
+                break;
+            case 'create_ref':
+                echo "<tr>";
+                foreach($createFields as $fieldLabel){
+                    echo "<td nowrap><b>".strtoupper(str_replace("_"," ",$fieldLabel))."</b></td>";
+                }
+                echo "</tr>";
+                
+                foreach($records as $record){
+                    echo "<tr>";
+                    foreach($record as $order => $field){
+                        echo "<td nowrap>";
+                        if($field){
+                            switch(strtolower($createFields[$order])){
+                                case "object_id":
+                                    $weenieName = getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$field)[0];
+                                    echo $weenieName[0]." - (<a href=weenies.php?search=".$field." >".$field."</a>)";
+                                    break;
+                                case "destination_type":
+                                    echo $destProps[$field]." - (".$field.")";
+                                    break;
+                                case "weenie_class_id":
+                                    $weenieName = getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$field)[0];
+                                    echo $weenieName[0]." - (<a href=weenies.php?search=".$field." >".$field."</a>)";
+                                    break;
+                                default:
+                                    echo $field;
+                            }
+                        }
+                        echo "</td>";
+                    }
+                    echo "</tr>";
+                }
+                
+                //dump($records);
+                
                 break;
             case 'encounterreferences':
                 ?>
@@ -239,12 +414,6 @@ function showDetails($weenie){
                 }
                     break;
             case 'emotereferences':
-                $propfile = file($propDir."weenietype.txt");
-                        $properties=[];
-                        foreach($propfile as $propLine){
-                            $prop=explode("	",$propLine);
-                            $properties[$prop[0]]=$prop[1];
-                        }
                         ?>
                 <tr>
                         <td>WCID</td>
@@ -258,19 +427,13 @@ function showDetails($weenie){
                 <tr>
                         <td><a href="?search=<?php echo $gen[0];?>" ><?php echo $gen[0];?></a></td>
                         <td><?php echo $gen[1];?></td>
-                        <td><?php echo "[".$gen[2]."] ".$properties[$gen[2]];?></td>
+                        <td><?php echo "[".$gen[2]."] ".$weenieTypes[$gen[2]];?></td>
                         <td><?php echo $gen[3];?></td>
                 </tr>
                     <?php
                 }
                 break;
             case 'genreferences':
-                    $propfile = file($propDir."weenietype.txt");
-                            $properties=[];
-                            foreach($propfile as $propLine){
-                                $prop=explode("	",$propLine);
-                               $properties[$prop[0]]=$prop[1];
-                            }
                             ?>
                     <tr>
                             <td>WCID</td>
@@ -284,13 +447,12 @@ function showDetails($weenie){
                     <tr>
                             <td><a href="?search=<?php echo $gen[0];?>" ><?php echo $gen[0];?></a></td>
                             <td><?php echo $gen[1];?></td>
-                            <td><?php echo "[".$gen[2]."] ".$properties[$gen[2]];?></td>
+                            <td><?php echo "[".$gen[2]."] ".$weenieTypes[$gen[2]];?></td>
                             <td><?php echo $gen[3];?></td>
                     </tr>
                         <?php
                     }
                 break;
-                
             default:
                 foreach($records as $record){
                     ?>
@@ -303,6 +465,7 @@ function showDetails($weenie){
                 }break;
         }
         echo "</table>".PHP_EOL;
+      }
     }
 }
 
