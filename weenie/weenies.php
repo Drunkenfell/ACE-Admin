@@ -146,6 +146,19 @@ function showDetails($weenie){
                 }
                 break;
             case 'emote':
+                $eCatFile = file($propDir."emotecategory.txt");
+                $eCatProps=[];
+                foreach($eCatFile as $ecatLine){
+                    $cat=explode("	",str_replace(chr(13).chr(10),"",$ecatLine));
+                    $eCatProps[$cat[1]]=$cat[0];
+                }
+                $eTypeFile = file($propDir."emotetype.txt");
+                $eTypeProps=[];
+                foreach($eTypeFile as $eTypeLine){
+                    $type=explode("	",str_replace(chr(13).chr(10),"",$eTypeLine));
+                    $etypeProps[$type[1]]=$type[0];
+                }
+                //dump($etypeProps);
                 foreach($records as $record){
                     $emoteActions=getRows("ace_world","weenie_properties_emote_action","*","emote_Id=".$record[0]);
                     echo "<tr>";
@@ -164,6 +177,9 @@ function showDetails($weenie){
                                 }else{
                                     dump($outputData);
                                 }
+                                break;
+                            case "category":
+                                echo $eCatProps[$outputData]." (".$outputData.")";
                                 break;
                             default:
                                 dump($outputData);
@@ -190,6 +206,12 @@ function showDetails($weenie){
                                         $weenieName = getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$eaOutput)[0];
                                         echo $weenieName[0]." - (<a href=weenies.php?search=".$eaOutput." >".$eaOutput."</a>)";
                                     }
+                                    break;
+                                //case "motion":
+
+                                //    break;
+                                case "type":
+                                    echo $etypeProps[$eaOutput]." (".$eaOutput.")";
                                     break;
                                 default:
                                     dump($eaOutput);
