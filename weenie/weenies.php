@@ -100,8 +100,9 @@ function showDetails($weenie){
     $output['lbreferences']=getRows("ace_world","landblock_instance","HEX(landblock),CONCAT ('/teleloc 0x',HEX(obj_Cell_Id), ' [', origin_X,' ',origin_Y,' ',origin_Z,'] ',angles_W,' ',angles_X,' ',angles_Y,' ',angles_Z)","weenie_Class_Id=".$output['weenie'][0]);
     $output['encounterreferences']=getRows("ace_world","encounter","HEX(landblock),cell_X,Cell_Y","weenie_Class_Id=".$output['weenie'][0]);
     $output['recipe_ref']=getRows("ace_world","recipe",implode(",",$recipe_ref_Fields),"success_W_C_I_D=".$output['weenie'][0]);
-
     $output['recipe_ingredient']=getRows("ace_world","cook_book",implode(",",$cookbook_Fields),"source_W_C_I_D=".$output['weenie'][0]." OR target_W_C_I_D=".$output['weenie'][0]);
+
+    $output['generator']=getRows("ace_world","weenie_properties_generator","*","object_Id=".$output['weenie'][0]);
     //var_dump($output['recipe_ingredient']);die();
     ?>
     <table class='content' width=33% cellpadding=2 cellspacing=2 border=1>
@@ -128,6 +129,34 @@ function showDetails($weenie){
             $properties[$prop[0]]=$prop[1];
         }
         switch(strtolower($label)){
+            case "generator":
+                $generatorFields=["id","object_Id","probability","weenie_Class_Id","delay","init_Create","max_Create","when_Create","where_Create","stack_Size","palette_Id","shade","obj_Cell_Id","origin_X","origin_Y","origin_Z","angles_W","angles_X","angles_Y","angles_Z"];
+                echo "<tr>";
+                foreach($generatorFields as $fieldLabel){
+                    echo "<td nowrap><b>".strtoupper(str_replace("_"," ",$fieldLabel))."</b></td>";
+                }
+                echo "</tr>";
+                foreach($records as $record){
+                    echo "<tr>";
+                    foreach($record as $order => $field){
+                        echo "<td nowrap>";
+                        if($field){
+                            switch(strtolower($generatorFields[$order])){
+                                case "weenie_class_id":
+                                    $weenieName=getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$field)[0][0]." - (<a href=weenies.php?search=".$field.">".$field.")";
+                                    echo $weenieName;
+                                    break;
+                                default:
+                                    echo $field;
+                            }
+                        }
+                        echo "</td>";
+                    }
+                    echo "</tr>";
+                }
+                
+                
+                break;
             case "recipe_ref":
                 
                 echo "<tr><td nowrap><B>SOURCE</B></td><td nowrap><B>TARGET</B></td>";
