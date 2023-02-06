@@ -8,30 +8,26 @@ if($logout){
     unset($_SESSION["accessLevel"]);
     unset($_SESSION["timeout"]);
     
-    //header('Refresh: 2; URL = login.php');
-    die('You have cleaned session');
+    echo 'You have cleaned session';
+    header('Refresh: 2; URL = login.php');
+    die();
 }
+
 $loadStart = date_create(date("Y")."-".date("m")."-".date("d")." ".date("H").":".date("i").":".date("s"));
 include "config.php";
 
 $cleanChars = chr(34)."/abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789',.+-*@";
-
 include "functions.php";
-
 $auth_required = true;
 
 if($_POST['pwd']){
     $authInfo = getRows("ace_auth","ace_auth.account","accountName,passwordHash,accessLevel","accountName='".$_POST['uid']."'");
     $auth=password_verify($_POST['pwd'],$authInfo[0][1]);
     if($auth){
-        
-        
         $_SESSION['uid']=$authInfo[0][0];
         $_SESSION['uid']=$authInfo[0][0];
         $_SESSION['accessLevel']=$authInfo[0][2];
         $_SESSION['timeout'] = time();
-        dump($_SESSION);
-        //dump($_SERVER);
     };
 
 }
