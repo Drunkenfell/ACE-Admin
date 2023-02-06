@@ -1,8 +1,8 @@
 <?php
 
 include "phpmysql.php";
-include "crypt.php";
-include "dbFunctions.php";
+//include "crypt.php";
+//include "dbFunctions.php";
 
 function dump($variable){
   //extract($GLOBALS);

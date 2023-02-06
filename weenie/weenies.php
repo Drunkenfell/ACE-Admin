@@ -167,12 +167,14 @@ function showDetails($weenie){
                 
                 
                 foreach($records as $record){
+                    //var_dump($cookbook_Fields);die();
                     echo "<tr>";
-                    $cookbook = getRows("ace_world","cook_book",implode(",",$cookbookFields),"recipe_Id=".$record[0])[0];
-                    $source=getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$cookbook[2])[0][0]." - (<a href=weenies.php?search=".$cookbook[2].">".$cookbook[2].")";
-                    $target=getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$cookbook[3])[0][0]." - (<a href=weenies.php?search=".$cookbook[3].">".$cookbook[3].")";
+                    $cookbook = getRows("ace_world","cook_book",implode(",",$cookbook_Fields),"recipe_Id=".$record[0])[0];
+                    $source=getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$cookbook[0])[0][0]." - (<a href=weenies.php?search=".$cookbook[0].">".$cookbook[0].")";
+                    $target=getRows("ace_world","weenie_properties_string","value","type=1 and object_Id=".$cookbook[1])[0][0]." - (<a href=weenies.php?search=".$cookbook[1].">".$cookbook[1].")";
+                    //var_dump($cookbook);die();
                     echo "<td nowrap>".$source."</td><td nowrap>".$target."</td>";
-                    //dump($cookbook);
+                    
                     foreach($record as $order => $field){
                         echo "<td nowrap>";
                         if($field){

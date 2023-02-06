@@ -1,27 +1,43 @@
 <?php
+
+ob_start();
+session_start();
+
+if($logout){
+    unset($_SESSION["uid"]);
+    unset($_SESSION["accessLevel"]);
+    unset($_SESSION["timeout"]);
+    
+    //header('Refresh: 2; URL = login.php');
+    die('You have cleaned session');
+}
 $loadStart = date_create(date("Y")."-".date("m")."-".date("d")." ".date("H").":".date("i").":".date("s"));
 include "config.php";
 
 $cleanChars = chr(34)."/abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789',.+-*@";
 
-include "expressions.php";
 include "functions.php";
+
+$auth_required = true;
 
 if($_POST['pwd']){
     $authInfo = getRows("ace_auth","ace_auth.account","accountName,passwordHash,accessLevel","accountName='".$_POST['uid']."'");
     $auth=password_verify($_POST['pwd'],$authInfo[0][1]);
     if($auth){
-        session_start();
+        
+        
+        $_SESSION['uid']=$authInfo[0][0];
         $_SESSION['uid']=$authInfo[0][0];
         $_SESSION['accessLevel']=$authInfo[0][2];
-        //dump($_SESSION);
+        $_SESSION['timeout'] = time();
+        dump($_SESSION);
         //dump($_SERVER);
     };
 
 }
 
 if($auth_required){
-    if(!$_SESSION){
+    if(!$_SESSION['uid']){
         ?>
     <form name=login id=login method=post>
     <table class="content" width=100% cellspacing=0 cellpadding=0 border=0>

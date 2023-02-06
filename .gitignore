@@ -1,3 +1,8 @@
 
 *.sh
-
+Core/config.php
+Core/file_reader.class.php
+Core/int_helper.class.php
+*.bin
+TestView/
+datTest.php
