@@ -6,3 +6,4 @@ Core/int_helper.class.php
 *.bin
 TestView/
 datTest.php
+*.zip

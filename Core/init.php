@@ -3,18 +3,23 @@
 ob_start();
 session_start();
 
+if(strtolower($_GET["logout"])=="true"){
+    $logout=true;
+}
+
 if($logout){
     unset($_SESSION["uid"]);
     unset($_SESSION["accessLevel"]);
     unset($_SESSION["timeout"]);
     
     echo 'You have cleaned session';
-    header('Refresh: 2; URL = login.php');
+    header('Refresh: 2; URL = /');
     die();
 }
 
 $loadStart = date_create(date("Y")."-".date("m")."-".date("d")." ".date("H").":".date("i").":".date("s"));
 include "config.php";
+include "definitions.php";
 
 $cleanChars = chr(34)."/abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ 0123456789',.+-*@";
 include "functions.php";
@@ -61,6 +66,12 @@ if($auth_required){
     }else{
         if( !isset($_SESSION['last_access']) || (time() - $_SESSION['last_access']) > 60 ){
             $_SESSION['last_access'] = time();
+        }
+    }
+    if($_SESSION){
+        //dump($_SESSION);
+        if($_SESSION["accessLevel"]<1){
+            die("You do not have access to this resource at this time.");
         }
     }
 }

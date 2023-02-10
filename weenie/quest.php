@@ -7,7 +7,13 @@
     foreach($emaSearch as $order => $item){
         $output['emoteactioninfo'][$order] = $item[0];
     }
-    $output['emoteinfo']=getRows("ace_world","weenie_properties_emote","object_Id","id in (".implode(",",$output['emoteactioninfo']).")");
+    //die(var_dump($output['emoteactioninfo']));
+    if($output['emoteactioninfo']){
+        $output['emoteinfo']=getRows("ace_world","weenie_properties_emote","object_Id","id in (".implode(",",$output['emoteactioninfo']).")");
+    }else{
+        
+    }
+    
     $npcList = [];
     foreach($output['emoteinfo'] as $order => $npc){
         if(!in_array($npc[0],$npcList)){
