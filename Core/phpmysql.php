@@ -52,7 +52,12 @@
 		
 		$valAr = [];
 		foreach($values as $value){
-			array_push($valAr,'"'.$value.'"');
+			if(is_bool($value)){
+				array_push($valAr,$value);
+			}else{
+				array_push($valAr,'"'.$value.'"');
+			}
+			
 		}
 		$values = implode(",",$valAr);
 	}
