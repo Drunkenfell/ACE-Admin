@@ -549,7 +549,11 @@ function showDetails($weenie){
                                     $spellInfo=getRows("ace_world","spell","id,name","id=".$record[1])[0];
                                     echo "<a href=spells.php?id=".$record[1].">".$spellInfo[1]."</a>";
                                     break;
-                                default:
+                                case "proc_spell":
+                                    $spellInfo=getRows("ace_world","spell","id,name","id=".$record[1])[0];
+                                    echo "<a href=spells.php?id=".$record[1].">".$spellInfo[1]."</a>";
+                                    break;
+                                    default:
                                 echo $record[1]; 
                             }
                             
