@@ -81,6 +81,7 @@ function showDetails($weenie){
     $cookbook_Fields=["source_W_C_I_D","target_W_C_I_D","recipe_Id"];
     $generatorFields=["id","object_Id","probability","weenie_Class_Id","delay","init_Create","max_Create","when_Create","where_Create","stack_Size","palette_Id","shade","obj_Cell_Id","origin_X","origin_Y","origin_Z","angles_W","angles_X","angles_Y","angles_Z"];
     $skillFields=["type","s_a_c","init_Level","level_From_P_P","p_p","init_Level"];
+    $spellbookFields=["spell","probability"];
 
     $weenie = getRows("ace_world","weenie","*","class_Id=".$weenie[0]);
     $output['weenie']=$weenie[0];
@@ -93,6 +94,7 @@ function showDetails($weenie){
     $output['attribute2']=getRows("ace_world","weenie_properties_attribute_2nd","type,init_Level,level_From_C_P,c_P_Spent","object_Id=".$output['weenie'][0]);
     $output['iid']=getRows("ace_world","weenie_properties_i_i_d","type,value","object_Id=".$output['weenie'][0]);
     $output['skill']=getRows("ace_world","weenie_properties_skill",implode(",",$skillFields),"object_Id=".$output['weenie'][0]);
+    $output['spellbook']=getRows("ace_world","weenie_properties_spell_book",implode(",",$spellbookFields),"object_Id=".$output['weenie'][0]);
     $output['int64']=getRows("ace_world","weenie_properties_int64","type,value","object_Id=".$output['weenie'][0]);
     $output['position']=getRows("ace_world","weenie_properties_position","position_Type,CONCAT ('/teleloc 0x',HEX(obj_Cell_Id), ' [', origin_X,' ',origin_Y,' ',origin_Z,'] ',angles_W,' ',angles_X,' ',angles_Y,' ',angles_Z)","object_Id=".$output['weenie'][0]);
     $output['emote']=getRows("ace_world","weenie_properties_emote","*","object_Id=".$output['weenie'][0]);
@@ -132,9 +134,33 @@ function showDetails($weenie){
             $properties[$prop[0]]=$prop[1];
         }
         switch(strtolower($label)){
-            case "skill":
-                $skillFields=["type","s_a_c","init_Level","level_From_P_P","p_p","init_Level"];
+            case "spellbook":
                 echo "<tr>";
+                foreach($spellbookFields as $fieldLabel){
+                    echo "<td nowrap><b>".strtoupper(str_replace("_"," ",$fieldLabel))."</b></td>";
+                }
+                echo "</tr>";
+                foreach($records as $record){
+                    echo "<tr>";
+                    foreach($record as $order => $field){
+                        echo "<td nowrap>";
+                        if($field){
+                            switch(strtolower($spellbookFields[$order])){
+                                case "spell":
+                                    $spellInfo=getRows("ace_world","spell","id,name","id=".$field)[0];
+                                    echo "<a href=spells.php?id=".$field.">".$spellInfo[1]."</a>";
+                                    break;
+                                default:
+                                    echo $field;
+                            }
+                        }
+                        echo "</td>";
+                    }
+                    echo "</tr>";
+                }
+                break;
+            case "skill":
+               echo "<tr>";
                 foreach($skillFields as $fieldLabel){
                     echo "<td nowrap><b>".strtoupper(str_replace("_"," ",$fieldLabel))."</b></td>";
                 }
@@ -517,7 +543,18 @@ function showDetails($weenie){
                     <tr>
                         <td><?php echo "[".$record[0]."]"; ?></td>
                         <td><?php echo $properties[$record[0]]; ?></td>
-                        <td><?php echo $record[1]; ?></td>
+                        <td><?php 
+                            switch(strtolower($properties[$record[0]])){
+                                case "spell":
+                                    $spellInfo=getRows("ace_world","spell","id,name","id=".$record[1])[0];
+                                    echo "<a href=spells.php?id=".$record[1].">".$spellInfo[1]."</a>";
+                                    break;
+                                default:
+                                echo $record[1]; 
+                            }
+                            
+                            
+                        ?></td>
                     </tr>
                 <?php
                 }break;
