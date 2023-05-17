@@ -108,7 +108,7 @@ function showDetails($weenie){
     $output['recipe_ingredient']=getRows("ace_world","cook_book",implode(",",$cookbook_Fields),"source_W_C_I_D=".$output['weenie'][0]." OR target_W_C_I_D=".$output['weenie'][0]);
 
     $output['generator']=getRows("ace_world","weenie_properties_generator","*","object_Id=".$output['weenie'][0]);
-    //var_dump($output['recipe_ingredient']);die();
+    //var_dump($output['position']);//die();
     ?>
     <table class='content' width=33% cellpadding=2 cellspacing=2 border=1>
         <tr>
@@ -148,7 +148,7 @@ function showDetails($weenie){
                             switch(strtolower($spellbookFields[$order])){
                                 case "spell":
                                     $spellInfo=getRows("ace_world","spell","id,name","id=".$field)[0];
-                                    echo "<a href=spells.php?id=".$field.">".$spellInfo[1]."</a>";
+                                    echo "<a href=spells.php?id=".$field.">".$spellInfo[1]."</a> (".$field.")";
                                     break;
                                 default:
                                     echo $field;
@@ -345,7 +345,7 @@ function showDetails($weenie){
                 foreach($records as $record){
                     ?>
                     <tr>
-                        <td><?php echo $record[0]; ?></td>
+                        <td><?php echo str_pad($record[0],4,"0",STR_PAD_LEFT); ?></td>
                         <td colspan=5 nowrap><?php echo $record[1]; ?></td>
                     <?php
                 }
@@ -485,15 +485,17 @@ function showDetails($weenie){
             case 'encounterreferences':
                 ?>
                 <tr>
-                        <td width=50%>Landblock</td>
-                        <td width=50% colspan=5 nowrap>Cell</td>
+                        <td width=33%>Landblock</td>
+                        <td width=33% colspan=3 nowrap>Cell</td>
+                        <td width=33% colspan=2 nowrap>Coords</td>
                 </tr>
                 <?php
                 foreach($records as $record){
                     ?>
                     <tr>
                         <td><?php echo $record[0]; ?></td>
-                        <td colspan=5 nowrap><?php echo $record[1].",".$record[2]; ?></td>
+                        <td colspan=3 nowrap><?php echo $record[1].",".$record[2]; ?></td>
+                        <td colspan=2 nowrap><?php echo convert_landblock('0x'.str_pad($record[0],4,"0",STR_PAD_LEFT).str_pad($record[1],2,"0",STR_PAD_LEFT).str_pad($record[2],2,"0",STR_PAD_LEFT)); ?></td>
                     <?php
                 }
                     break;
